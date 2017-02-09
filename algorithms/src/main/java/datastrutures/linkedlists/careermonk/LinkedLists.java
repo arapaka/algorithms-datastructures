@@ -62,32 +62,27 @@ public class LinkedLists {
     /**
      * Insert at the middle
      */
-    public ListNode insertAtMiddle(ListNode head , int position , int k) {
-         int counter = 1;
+    public ListNode insertAtPosition(ListNode head , int position , int k) {
 
-         ListNode newNode = new ListNode(k);
+        if(position < 0 ) {
+             return insertBeforeHead(head,k);
+        }
 
-          if(position == 1){
-              return insertBeforeHead(head,k);
-          }
+        if(position >= getLength(head)) {
+            return insertAtTheEnd(head,k);
+        }
+        // insert at the middle
 
-          ListNode curr = head;
+        ListNode curr = head;
+        ListNode newNode = new ListNode(k);
 
-           ListNode prev = null;
+        for (int i = 1 ; i < position ; i++) {
+             curr = curr.next;
+        }
 
-          while (curr != null && counter!= position){
-                 prev = curr;
-                 curr = curr.next;
-                 counter++;
-          }
-
-        /**
-         * now that current node points to the target place and prev is one node behind it
-         */
-       newNode.next = curr;
-        prev.next = newNode;
-
-     return head;
+        newNode.next = curr.next;
+        curr.next = newNode;
+        return head;
     }
 
     /**
@@ -101,5 +96,99 @@ public class LinkedLists {
           head = temp.next;
           temp.next = null;
 
+    }
+
+    /**
+     * remove from a position sll
+     *
+     */
+
+    public synchronized ListNode  removeFrom(ListNode head , int position){
+
+           if(head == null){
+               throw new IllegalArgumentException("head cannot be empty ");
+           }
+
+           ListNode temp = head;
+
+        // get the node at the position
+        for (int i = 1; i < position; i++) {
+               temp = temp.next;
+        }
+
+        temp.next = temp.next.next;
+        return head;
+    }
+
+    /**
+     * remove first matched data
+     */
+
+    public synchronized ListNode removeMatched(ListNode head , Integer target) {
+            if(head == null){
+                throw new IllegalArgumentException("head cannot be empty !");
+            }
+
+            // create a fake node
+            ListNode fakeHead = new ListNode(0);
+            fakeHead.next = head;
+            ListNode curr = fakeHead;
+
+            while (curr.next != null){
+                     if(curr.next.data == target){
+                         curr.next = curr.next.next;
+                     }
+                     else {
+                         curr = curr.next;
+                     }
+            }
+            return fakeHead.next;
+    }
+
+    public int getLength(ListNode head){
+         if(head == null){
+             return 0;
+         }
+         ListNode temp = head;
+        int counter = 1;
+
+        while (temp != null){
+            temp = temp.next;
+            counter++;
+        }
+        return counter;
+    }
+
+    /**
+     * Empty a list
+     */
+    public void clearList(ListNode head){
+         if(head == null){
+             return;
+         }
+         head = null;
+    }
+
+    /**
+     * Find the position of first matching value in the list
+     */
+    public int searchByValue(ListNode head , Integer data){
+        // head is null
+        if(head == null){
+               return -1;
+           }
+
+        ListNode node = head;
+        int counter = 1;
+
+        while (node != null){
+
+                 if(node.data == data){
+                      return counter;
+                 }
+            counter++;
+            node = node.next;
+        }
+        return -1;
     }
 }
