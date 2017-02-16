@@ -110,13 +110,120 @@ public class CircularLinkedList {
             curr = curr.next;
         }
     }
+
+    //Insert at the front of linked ist
+
+    public void insertAtTheFront(int k){
+            ListNode newNode = new ListNode(k);
+            newNode.next = newNode;
+
+        if(head == null){
+            head = newNode;
+            length++;
+            return;
+        }
+        // there is only one node , insert at its front
+        if(length == 1){
+             newNode.next = head;
+            head.next = newNode;
+            head = newNode;
+            length++;
+            return;
+        }
+
+        // more than one node , travel to the tail
+
+        ListNode curr = head;
+
+        while (curr.next != head){
+            curr = curr.next;
+        }
+
+        // curr is the tail
+        newNode.next = head;
+        curr.next = newNode;
+        head = newNode;
+        length++;
+       return;
+    }
+
+    //deleting the last node in CLL
+    public void deleteTail(){
+        if(head == null){
+            System.out.print("THE LIST IS EMPTY!");
+            return;
+        }
+
+        if(length == 1){
+            head = null;
+            length = 0;
+            return;
+        }
+
+        // more than one node , keep track of curr and prev pointers
+
+        ListNode curr = head;
+        ListNode next = head.next;
+
+        while (next.next != head){
+              curr = next;
+              next = next.next;
+        }
+        // curr node is the pre tail node , connect it to head
+        curr.next = head;
+        // dispose off the tail
+        System.out.println("disposing off the tail node : " + next.data);
+        next = null;
+        length--;
+        return;
+    }
+
+    // delete Head
+
+    public void deleteHead() {
+        if(head == null){
+            System.out.println("head is empty!");
+        }
+
+        if(length == 1){
+            head = null;
+            length = 0;
+            return;
+        }
+        ListNode curr = head;
+        ListNode next = head.next;
+
+        while (next.next != head){
+            next = next.next;
+        }
+
+        // next is the tail , point to next node of head;
+        next.next = curr.next;
+        head = curr.next;
+        length--;
+        return;
+    }
+
     public static void main(String[] args) {
         CircularLinkedList circularLinkedList = new CircularLinkedList();
         circularLinkedList.addToTail(16);
         circularLinkedList.addToTail(15);
         circularLinkedList.addToTail(1);
        circularLinkedList.addToTail(4);
+
+        circularLinkedList.insertAtTheFront(25);
+        circularLinkedList.insertAtTheFront(45);
+
+//        circularLinkedList.deleteTail();
+//        circularLinkedList.deleteTail();
+//        circularLinkedList.deleteTail();
+
+         circularLinkedList.deleteHead();
+        circularLinkedList.deleteHead();
+        circularLinkedList.deleteHead();
+
         circularLinkedList.print();
+
 
     }
 
