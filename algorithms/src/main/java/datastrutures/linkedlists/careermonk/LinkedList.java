@@ -6,12 +6,19 @@ import datastrutures.linkedlists.datastructuredefinitions.ListNode;
  * Created by archithrapaka on 2/8/17.
  * This is a singly linked list with basic operations
  */
-public class LinkedLists {
+public class LinkedList {
+
+    public ListNode head;
+
+    public ListNode getHead() {
+        return head;
+    }
 
     /**
+
      * Print the contents of linked list
      */
-    public void print(ListNode head){
+    public void print(){
          if(head == null){
              throw new IllegalArgumentException("the list is empty");
          }
@@ -27,7 +34,7 @@ public class LinkedLists {
      * Inserting an item in the SLL and return it's head
      */
 
-    public ListNode insertBeforeHead(ListNode head , int k){
+    public ListNode insertBeforeHead(int k){
         // if the head is null , create a new node and make it head
 
         ListNode newNode = new ListNode(k);
@@ -40,9 +47,9 @@ public class LinkedLists {
      * Insert at the end of the list
      */
 
-    public ListNode insertAtTheEnd(ListNode head , int k){
+    public ListNode insertAtTheEnd( int k){
          if(head == null){
-             return insertBeforeHead(head,k);
+             return insertBeforeHead(k);
          }
 
 
@@ -50,7 +57,7 @@ public class LinkedLists {
         // create a new node
          ListNode newNode = new ListNode(k);
 
-         while (temp != null){
+         while (temp.next != null){
              temp = temp.next;
          }
 
@@ -62,14 +69,14 @@ public class LinkedLists {
     /**
      * Insert at the middle
      */
-    public ListNode insertAtPosition(ListNode head , int position , int k) {
+    public ListNode insertAtPosition(int position , int k) {
 
         if(position < 0 ) {
-             return insertBeforeHead(head,k);
+             return insertBeforeHead(k);
         }
 
-        if(position >= getLength(head)) {
-            return insertAtTheEnd(head,k);
+        if(position >= getLength()) {
+            return insertAtTheEnd(k);
         }
         // insert at the middle
 
@@ -88,7 +95,7 @@ public class LinkedLists {
     /**
      * SLL deletion
      */
-    public void removeFromHead(ListNode head){
+    public void removeFromHead(){
           if(head == null){
               throw new IllegalArgumentException("head is empty");
           }
@@ -103,7 +110,7 @@ public class LinkedLists {
      *
      */
 
-    public synchronized ListNode  removeFrom(ListNode head , int position){
+    public synchronized ListNode  removeFrom(int position){
 
            if(head == null){
                throw new IllegalArgumentException("head cannot be empty ");
@@ -124,7 +131,7 @@ public class LinkedLists {
      * remove first matched data
      */
 
-    public synchronized ListNode removeMatched(ListNode head , Integer target) {
+    public synchronized ListNode removeMatched(Integer target) {
             if(head == null){
                 throw new IllegalArgumentException("head cannot be empty !");
             }
@@ -145,7 +152,7 @@ public class LinkedLists {
             return fakeHead.next;
     }
 
-    public int getLength(ListNode head){
+    public int getLength(){
          if(head == null){
              return 0;
          }
@@ -162,7 +169,7 @@ public class LinkedLists {
     /**
      * Empty a list
      */
-    public void clearList(ListNode head){
+    public void clearList(){
          if(head == null){
              return;
          }
@@ -172,7 +179,7 @@ public class LinkedLists {
     /**
      * Find the position of first matching value in the list
      */
-    public int searchByValue(ListNode head , Integer data){
+    public int searchByValue(Integer data){
         // head is null
         if(head == null){
                return -1;
