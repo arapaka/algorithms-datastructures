@@ -14,7 +14,24 @@ public class CircularLinkedList {
        length = 0;
    }
 
-   public int getCount() {
+    public ListNode getHead() {
+        return head;
+    }
+
+    public void setHead(ListNode head) {
+        this.head = head;
+    }
+
+    public int getLength() {
+        return length;
+    }
+
+    public void setLength(int length) {
+        this.length = length;
+    }
+
+    public int getCount() {
+
         if (head == null) {
             return 0;
         }
@@ -202,6 +219,43 @@ public class CircularLinkedList {
         head = curr.next;
         length--;
         return;
+    }
+
+    // utility method get last node
+
+    public ListNode getTail(){
+         if(head == null){
+             return null;
+         }
+
+         if(length == 1){
+             return head;
+         }
+         ListNode curr = head.next;
+
+        while (curr != head){
+            curr = curr.next;
+        }
+        return curr;
+    }
+
+    public boolean contains(int k){
+        if(head == null){
+            return false;
+        }
+
+        if((int)head.data == k) {
+            return true;
+        }
+        ListNode curr = head;
+
+        while (curr.next != head){
+                     if((int)curr.data == k){
+                         return true;
+                     }
+            curr = curr.next;
+        }
+        return false;
     }
 
     public static void main(String[] args) {
