@@ -28,10 +28,13 @@ public class FindNthNode {
 
     public static void main(String[] args) {
         LinkedList LS = new LinkedList();
-        LS.insertBeforeHead(5);
-        LS.insertBeforeHead(15);
-        LS.insertBeforeHead(25);
-        LS.insertBeforeHead(35);
+        LS.insertBeforeHead(4);
+        LS.insertBeforeHead(0);
+        LS.insertBeforeHead(7);
+        LS.insertBeforeHead(3);
+        LS.insertBeforeHead(8);
+        LS.insertBeforeHead(2);
+        LS.insertBeforeHead(1);
 
         System.out.print(findNthNode(LS.getHead(),3));
 

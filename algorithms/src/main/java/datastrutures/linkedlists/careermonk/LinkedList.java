@@ -198,4 +198,7 @@ public class LinkedList {
         }
         return -1;
     }
+    /**
+     * paiwise swap
+     */
 }
