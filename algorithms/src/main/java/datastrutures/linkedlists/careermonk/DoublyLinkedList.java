@@ -49,7 +49,7 @@ public class DoublyLinkedList {
         return head;
     }
 
-    // insert at some position
+    // insertHelper at some position
     public DLLNode insertAtPosition(int value, int position) {
             if (position <= 0 || head == null) {
                 return insertBeforeHead(value);

@@ -75,7 +75,7 @@ public class CircularLinkedList {
        length++;
    }
     /***
-     * sorted insert has 3 cases
+     * sorted insertHelper has 3 cases
      * Before head , in the middle , at the end
      */
     public synchronized void sortedInsert(int k) {
@@ -88,7 +88,7 @@ public class CircularLinkedList {
               return;
           }
 
-          // if head data > new Node data , insert before head and make it new head
+          // if head data > new Node data , insertHelper before head and make it new head
 
           if ((int)head.data >= k) {
              newNode.next = head;
@@ -97,7 +97,7 @@ public class CircularLinkedList {
              return;
           }
 
-          // insert somewhere in the middle
+          // insertHelper somewhere in the middle
           ListNode temp = head.next;
           while (temp != head) {
                 if ((int)temp.data <= k) {
@@ -139,7 +139,7 @@ public class CircularLinkedList {
             length++;
             return;
         }
-        // there is only one node , insert at its front
+        // there is only one node , insertHelper at its front
         if(length == 1){
              newNode.next = head;
             head.next = newNode;
