@@ -1,6 +1,6 @@
 package Facebook;
 
-import java.util.Random;
+import java.util.*;
 
 /**
  * Created by archithrapaka on 4/22/17.
@@ -39,5 +39,18 @@ public class FirstBadVersion {
             a[i] = i;
         }
             System.out.println(findVersion(a));
+        final List<String> list = new ArrayList<>();
+        list.add("hello");
+        list.add("krish");
+	    List<String> unmodifiable = Collections.unmodifiableList(list);
+	    //unmodifiable.add("hello");
+	    //Collection<SortedSet> S = new C
+	    Map<String,String> map = new HashMap<>();
+	    map.put("znet","123");
+	    map.put("manga","manga");
+	    TreeMap<String,String> tm = new TreeMap<>(map);
+	    for (Map.Entry entry:tm.entrySet()) {
+		    System.out.println(entry.getKey() + ","+entry.getValue());
+	    }
     }
 }
