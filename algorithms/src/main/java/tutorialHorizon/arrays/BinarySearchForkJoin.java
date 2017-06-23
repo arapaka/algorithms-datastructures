@@ -4,8 +4,10 @@ import java.time.LocalTime;
 import java.time.ZoneId;
 import java.util.Arrays;
 import java.util.Random;
+import java.util.concurrent.CompletableFuture;
 import java.util.concurrent.ForkJoinPool;
 import java.util.concurrent.RecursiveTask;
+import java.util.stream.Stream;
 
 /**
  * Created by archith.rapaka on 6/22/17.
@@ -67,13 +69,19 @@ public class BinarySearchForkJoin {
 		LocalTime before = LocalTime.now(ZoneId.systemDefault());
 		int bef = before.toSecondOfDay();
 		System.out.println("start : " + bef);
-//		System.out.println(binarySearch(a,77));
-//		System.out.println(binarySearch(a,44));
-//		System.out.println(binarySearch(a,99));
-//		System.out.println(binarySearch(a,5));
-//		System.out.println(binarySearch(a,89));
+		CompletableFuture<Integer> found1 = CompletableFuture.supplyAsync(() -> binarySearch(b,77));
+		CompletableFuture<Integer> found2 = CompletableFuture.supplyAsync(() -> binarySearch(b,44));
+		CompletableFuture<Integer> found3 = CompletableFuture.supplyAsync(() -> binarySearch(b,99));
+		CompletableFuture<Integer> found4 = CompletableFuture.supplyAsync(() -> binarySearch(b,81));
+		CompletableFuture<Integer> found5 = CompletableFuture.supplyAsync(() -> binarySearch(b,89));
+		CompletableFuture<Integer> found6 = CompletableFuture.supplyAsync(() -> binarySearch(b,77));
+
 		LocalTime now = LocalTime.now(ZoneId.systemDefault());
 		int after = now.toSecondOfDay();
 		System.out.println("after: " + after);
+		Stream.of(found1,found2,found3,found4,found5,found6)
+				.map(CompletableFuture::join)
+				.forEach(result -> System.out.println(result));
+		//System.out.println(combined);
 	}
 }
