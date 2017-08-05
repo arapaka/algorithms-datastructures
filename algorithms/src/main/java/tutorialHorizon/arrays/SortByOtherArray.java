@@ -70,8 +70,8 @@ public class SortByOtherArray {
     }
 
     public static void main(String[] args) {
-        int [] arrA = {2,6,9,1,4,4,2,1,10,13,5,7,8};
-        int [] arrB = {4,5,7};
+        int [] arrA = {7,5,2,6,9,1,4,4,2,1,10,13,5,7,8};
+        int [] arrB = {2,7,5};
         sortByOtherArray(arrA,arrB);
         display(arrA);
     }

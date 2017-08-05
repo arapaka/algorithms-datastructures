@@ -1,6 +1,8 @@
 package tutorialHorizon.arrays;
 
+import java.util.ArrayList;
 import java.util.Arrays;
+import java.util.List;
 
 /**
  * Created by archith.rapaka on 6/22/17.
@@ -36,5 +38,10 @@ public class BinarySearch {
 		System.out.println(binarySearch(a,5));
 		System.out.println(binarySearch(a,89));
 		System.out.println(Arrays.binarySearch(a,89));
+		List<Integer> list = new ArrayList(Arrays.asList(a));
+		int[] copy = new int[list.size()];
+		for (int i = 0; i < copy.length; i++) {
+			 copy[i] = list.get(i);
+		}
 	}
 }

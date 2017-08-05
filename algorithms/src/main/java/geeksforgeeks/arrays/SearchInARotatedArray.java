@@ -65,8 +65,8 @@ public class SearchInARotatedArray {
         return -1;
     }
     public static void main(String[] args) {
-        int[] a = {4, 5, 6, 7, 8, 9, 1, 2, 3};
-        System.out.println(findNumber(a,6));
-        System.out.println(findInRotatedArray(a,6,0,a.length-1));
+        int a[] = { 10, 11, 12, 1, 2, 3, 4, 5, 6, 7, 8 };
+        System.out.println(findNumber(a,5));
+        System.out.println(findInRotatedArray(a,5,0,a.length-1));
     }
 }
