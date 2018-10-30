@@ -1,4 +1,4 @@
-package tutorialHorizon.arrays;
+package multiThreading;
 
 import java.lang.reflect.Array;
 import java.time.LocalTime;

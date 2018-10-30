@@ -13,7 +13,6 @@ public class BinarySearch {
 	public static int binarySearch(int[] a ,int target) {
 		int low = 0;
 		int high = a.length-1;
-
 		while (low <= high) {
 			int mid = (high+low) >>> 1;
 			if(a[mid] == target) {

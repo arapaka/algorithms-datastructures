@@ -5,16 +5,20 @@ package codefights;
  */
 public class FirstDuplicate {
 
-//    static int findFirstDuplicate(int[] a) {
-//        int lowestIndex = Integer.MAX_VALUE;
-//
-//        for (int i = 1; i < a.length; i++) {
-//
-//        }
-//    }
+    static int findFirstDuplicate(int[] a) {
+
+        for (int i = 0; i < a.length; i++) {
+             int index = Math.abs(a[i]);
+              if(a[index-1] < 0) {
+                  return index;
+              }
+             a[index-1] = -a[index-1];
+        }
+        return -1;
+    }
 
     public static void main(String[] args) {
-        int[] a = {1, 6, 3, 1, 3, 6, 6};
-        //System.out.println(findFirstDuplicate(a));
+        int[] a = {2,4,3,5,1};
+        System.out.println(findFirstDuplicate(a));
     }
 }

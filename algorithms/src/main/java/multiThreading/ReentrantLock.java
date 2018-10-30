@@ -27,7 +27,7 @@ public class ReentrantLock {
 
             if(lockedCount == 0){
                 isLocked = false;
-                notify();
+                notifyAll();
             }
         }
     }

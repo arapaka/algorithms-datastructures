@@ -1,4 +1,4 @@
-package tutorialHorizon.arrays;
+package multiThreading;
 
 import java.time.LocalTime;
 import java.time.ZoneId;

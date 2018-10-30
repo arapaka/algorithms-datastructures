@@ -23,7 +23,7 @@ public class MoveZeros {
     }
 
     public static void main(String[] args) {
-        int[] a = {1,4,3,5,7,2,9,4};
+        int[] a = {0,1,4,0,3,5,7,0,2,9,4};
         moveZeros(a);
         Arrays.stream(a).forEach(element -> System.out.print(element + " "));
     }

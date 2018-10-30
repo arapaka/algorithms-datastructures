@@ -1,5 +1,7 @@
 package geeksforgeeks.arrays;
 
+import java.util.Arrays;
+
 /**
  * Created by archithrapaka on 6/19/17.
  */
@@ -43,6 +45,7 @@ public class QuickSort {
                   int temp = a[i];
                   a[i] = a[j];
                   a[j] = temp;
+
               }
 
         }
@@ -56,6 +59,8 @@ public class QuickSort {
 
 
     public static void main(String[] args) {
-
+          int[] a = {100,5,3,1,2,0,-1};
+          sort(a,0,a.length-1);
+        Arrays.stream(a).forEach(i -> System.out.println(i + " "));
     }
 }

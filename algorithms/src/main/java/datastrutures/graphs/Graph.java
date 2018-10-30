@@ -11,7 +11,7 @@ import java.util.List;
  */
 public class Graph {
 
-    public int V ; // no of veritices
+    public int V ; // no of vertices
     public LinkedList<Integer>[] adj;
 
     //constructor
