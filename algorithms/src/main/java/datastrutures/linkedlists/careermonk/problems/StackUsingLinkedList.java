@@ -15,9 +15,10 @@ public class StackUsingLinkedList<K extends Object> implements Iterable<K> {
     private ListNode head;
     private int count;
 
-    public StackUsingLinkedList(){
+    public StackUsingLinkedList() {
         head = null;
     }
+
     // push or add elements to stack
     public void push(K k) {
         ListNode first = head;
@@ -26,10 +27,10 @@ public class StackUsingLinkedList<K extends Object> implements Iterable<K> {
     }
 
     public K pop() {
-        if(head == null){
+        if (head == null) {
             throw new UnsupportedOperationException("Stack is empty!");
         }
-        K k = (K)head.data;
+        K k = (K) head.data;
         head = head.next;
         count--;
         return k;
@@ -38,10 +39,11 @@ public class StackUsingLinkedList<K extends Object> implements Iterable<K> {
 
     public void print() {
         Iterator it = this.iterator();
-        while (it.hasNext()){
+        while (it.hasNext()) {
             System.out.println(it.next());
         }
     }
+
     @Override
     public Iterator<K> iterator() {
         return new StackIterator();
@@ -63,7 +65,7 @@ public class StackUsingLinkedList<K extends Object> implements Iterable<K> {
     private class StackIterator implements Iterator<K> {
         private ListNode current = head;
 
-        public boolean hasNext(){
+        public boolean hasNext() {
             return current != null;
         }
 

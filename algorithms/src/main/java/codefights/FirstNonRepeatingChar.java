@@ -10,36 +10,34 @@ public class FirstNonRepeatingChar {
 
     static char getFirstNonRepeatingChar(String s) {
 
-        Map<Character,CharIndex> map = new HashMap<>(26);
+        Map<Character, CharIndex> map = new HashMap<>(26);
 
         for (int i = 0; i < s.length(); i++) {
             char c = s.charAt(i);
             int index = i;
             int count = 1;
-            CharIndex charIndex = new CharIndex(count,index);
+            CharIndex charIndex = new CharIndex(count, index);
 
-            if(map.containsKey(c)) {
+            if (map.containsKey(c)) {
                 charIndex = map.get(c);
-                charIndex.count = charIndex.count+1;
-                map.put(c,charIndex);
-            }
-            else {
-               map.put(c,charIndex);
+                charIndex.count = charIndex.count + 1;
+                map.put(c, charIndex);
+            } else {
+                map.put(c, charIndex);
             }
         }
 
         int min = Integer.MAX_VALUE;
-        for (char c:map.keySet()) {
-            if(map.get(c).count > 1) {
+        for (char c : map.keySet()) {
+            if (map.get(c).count > 1) {
                 continue;
-            }
-            else {
-                if(map.get(c).index < min) {
+            } else {
+                if (map.get(c).index < min) {
                     min = map.get(c).index;
                 }
             }
         }
-        if(min == Integer.MAX_VALUE) {
+        if (min == Integer.MAX_VALUE) {
             return '_';
         }
         return s.charAt(min);
@@ -49,7 +47,7 @@ public class FirstNonRepeatingChar {
         int count;
         int index;
 
-        public CharIndex(int count , int index) {
+        public CharIndex(int count, int index) {
             this.count = count;
             this.index = index;
         }

@@ -11,23 +11,22 @@ public class SortedSquareArray {
 
 
     static int[] sortedSquaredArray(int[] array) {
-        if(array == null || array.length == 0){
+        if (array == null || array.length == 0) {
             return array;
         }
 
         List<Integer> negative = new ArrayList<>();
         // get all negative elements
-        int i ;
-        for (i = 0;i < array.length;i++) {
-            if(array[i] < 0) {
+        int i;
+        for (i = 0; i < array.length; i++) {
+            if (array[i] < 0) {
                 negative.add(array[i]);
-            }
-            else {
+            } else {
                 break;
             }
         }
 
-        if(negative.size() > 0) {
+        if (negative.size() > 0) {
             Collections.reverse(negative);
         }
 
@@ -37,16 +36,16 @@ public class SortedSquareArray {
             neg[k] = val * val;
         }
 
-        int[] pos = new int[array.length-neg.length];
+        int[] pos = new int[array.length - neg.length];
         int j = 0;
         while (i < array.length && j < pos.length) {
             int posVal = array[i];
             i++;
-            pos[j] = posVal*posVal;
+            pos[j] = posVal * posVal;
             j++;
         }
 
-        int[] merged = merge(neg,pos);
+        int[] merged = merge(neg, pos);
         return merged;
     }
 
@@ -54,24 +53,22 @@ public class SortedSquareArray {
         int i = 0;
         int j = 0;
         int k = 0;
-        int[] merged = new int[neg.length+pos.length];
+        int[] merged = new int[neg.length + pos.length];
         while (i < neg.length && j < pos.length) {
 
-               if(neg[i] < pos [j]) {
-                   merged[k] = neg[i];
-                   i++;
-                   k++;
-               }
-               else if (pos[j] < neg[i]) {
-                   merged[k] = pos[j];
-                   j++;
-                   k++;
-               }
-               else {
-                   merged[k] = neg[i];
-                   i++;
-                   k++;
-               }
+            if (neg[i] < pos[j]) {
+                merged[k] = neg[i];
+                i++;
+                k++;
+            } else if (pos[j] < neg[i]) {
+                merged[k] = pos[j];
+                j++;
+                k++;
+            } else {
+                merged[k] = neg[i];
+                i++;
+                k++;
+            }
         }
         while (i < neg.length) {
             merged[k] = neg[i];
@@ -90,7 +87,7 @@ public class SortedSquareArray {
     public static void main(String[] args) {
         int[] a = {-6, -4, 1, 2, 3, 5};
         int[] squared = sortedSquaredArray(a);
-        for (int i :squared) {
+        for (int i : squared) {
             System.out.print(i + " ");
         }
     }

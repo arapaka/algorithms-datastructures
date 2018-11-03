@@ -5,17 +5,17 @@ package design;
  */
 public class Singleton {
 
-	private static Singleton SINGLETON = new Singleton();
+    private static Singleton SINGLETON = new Singleton();
 
-	private Singleton() {
+    private Singleton() {
 
-	}
+    }
 
-	public static Singleton getInstance() {
-		 if(SINGLETON == null) {
-			 SINGLETON = new Singleton();
-		 }
-		return SINGLETON;
-	}
+    public static Singleton getInstance() {
+        if (SINGLETON == null) {
+            SINGLETON = new Singleton();
+        }
+        return SINGLETON;
+    }
 
 }

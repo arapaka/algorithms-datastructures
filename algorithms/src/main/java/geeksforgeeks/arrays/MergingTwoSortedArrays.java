@@ -6,22 +6,21 @@ package geeksforgeeks.arrays;
  */
 public class MergingTwoSortedArrays {
 
-    public static void mergeArrays(int[] n , int[] mPlusN) {
+    public static void mergeArrays(int[] n, int[] mPlusN) {
         int k = 0; // start index of mPlusN;
         int i = n.length; //
         int j = 0; // start index of N
-        move(mPlusN,n.length);
+        move(mPlusN, n.length);
         while (i < mPlusN.length && j < n.length) {
-              if(mPlusN[i] <= n[j]) {
-                  mPlusN[k] = mPlusN[i];
-                  i++;
-                  k++;
-              }
-              else {
-                  mPlusN[k] = n[j];
-                  k++;
-                  j++;
-              }
+            if (mPlusN[i] <= n[j]) {
+                mPlusN[k] = mPlusN[i];
+                i++;
+                k++;
+            } else {
+                mPlusN[k] = n[j];
+                k++;
+                j++;
+            }
         }
 
         while (i < mPlusN.length) {
@@ -45,13 +44,14 @@ public class MergingTwoSortedArrays {
 
     /**
      * Move empty blocks to front of the array
+     *
      * @param mPlusN
      */
-    public static void move(int[] mPlusN , int n) {
-        int i = mPlusN.length-1;
-        int j = mPlusN.length-1;
+    public static void move(int[] mPlusN, int n) {
+        int i = mPlusN.length - 1;
+        int j = mPlusN.length - 1;
         while (i >= 0) {
-            if(mPlusN[i] > 0) {
+            if (mPlusN[i] > 0) {
                 mPlusN[j] = mPlusN[i];
                 j--;
             }
@@ -65,9 +65,9 @@ public class MergingTwoSortedArrays {
     }
 
     public static void main(String[] args) {
-        int[] mPlusN = {2,7,7,0,0,17,0,0};
-        int[] n = {5,8,12,14};
-        mergeArrays(n,mPlusN);
+        int[] mPlusN = {2, 7, 7, 0, 0, 17, 0, 0};
+        int[] n = {5, 8, 12, 14};
+        mergeArrays(n, mPlusN);
         print(mPlusN);
     }
 }

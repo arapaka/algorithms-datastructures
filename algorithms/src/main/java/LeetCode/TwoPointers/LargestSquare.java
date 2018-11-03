@@ -5,8 +5,8 @@ package LeetCode.TwoPointers;
  */
 public class LargestSquare {
 
-    public int getMaxArea(int[][] matrix){
-        if(matrix.length == 0 || null == matrix) {
+    public int getMaxArea(int[][] matrix) {
+        if (matrix.length == 0 || null == matrix) {
             return 0;
         }
 
@@ -17,7 +17,7 @@ public class LargestSquare {
         int[][] t = new int[m][n];
 
         for (int i = 0; i < m; i++) {
-             t[i][0] = matrix[i][0];
+            t[i][0] = matrix[i][0];
         }
         for (int j = 0; j < n; j++) {
             t[0][j] = matrix[0][j];
@@ -25,18 +25,18 @@ public class LargestSquare {
 
         for (int i = 1; i < m; i++) {
             for (int j = 1; j < n; j++) {
-                    if(matrix[i][j] == 1) {
-                        int min = Math.min(t[i-1][j],t[i][j-1]);
-                        min = Math.min(min,t[i-1][j-1]);
-                        t[i][j] = min+1;
-                    } else {
-                        t[i][j] = 0;
-                    }
+                if (matrix[i][j] == 1) {
+                    int min = Math.min(t[i - 1][j], t[i][j - 1]);
+                    min = Math.min(min, t[i - 1][j - 1]);
+                    t[i][j] = min + 1;
+                } else {
+                    t[i][j] = 0;
+                }
             }
         }
         for (int i = 0; i < m; i++) {
             for (int j = 0; j < n; j++) {
-                if(t[i][j] > maxArea) {
+                if (t[i][j] > maxArea) {
                     maxArea = t[i][j];
                 }
             }
@@ -45,7 +45,7 @@ public class LargestSquare {
     }
 
 
-    public static void main(String[] args){
+    public static void main(String[] args) {
 
     }
 }

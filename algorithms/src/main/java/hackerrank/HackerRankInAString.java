@@ -12,17 +12,18 @@ public class HackerRankInAString {
 
         while (i < s.length() && j < hackerRank.length()) {
 
-               if(s.charAt(i) == hackerRank.charAt(j)) {
-                   i++;
-                   j++;
-               } else {
-                   i++;
-               }
+            if (s.charAt(i) == hackerRank.charAt(j)) {
+                i++;
+                j++;
+            } else {
+                i++;
+            }
         }
         return (j == hackerRank.length());
     }
+
     public static void main(String[] args) {
-            String s = "hereiamstackerrank";
-            System.out.println(findHackerRankBetter(s));
+        String s = "hereiamstackerrank";
+        System.out.println(findHackerRankBetter(s));
     }
 }

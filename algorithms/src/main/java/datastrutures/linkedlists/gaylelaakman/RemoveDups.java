@@ -12,21 +12,20 @@ public class RemoveDups {
 
         List<List<String>> list = new ArrayList<>();
         List<String> subList;
-        Map<Integer,Integer> map = new HashMap<>();
+        Map<Integer, Integer> map = new HashMap<>();
 
-        for(String s : strs) {
+        for (String s : strs) {
             int key = 1;
-            for (char c: s.toCharArray()) {
+            for (char c : s.toCharArray()) {
                 key *= prime[c - 'a'];
             }
 
-            if(map.containsKey(key)) {
+            if (map.containsKey(key)) {
                 subList = list.get(map.get(key));
-            }
-            else {
+            } else {
                 subList = new ArrayList<>();
                 subList.add(s);
-                map.put(key,subList.size()-1);
+                map.put(key, subList.size() - 1);
             }
 
         }
@@ -38,7 +37,7 @@ public class RemoveDups {
 //    }
 
     public static void main(String[] args) {
-        String[] s = {"eat","tea","tan","ate","nat","bat"};
+        String[] s = {"eat", "tea", "tan", "ate", "nat", "bat"};
         //System.out.println(groupAnagrams(s));
     }
 }

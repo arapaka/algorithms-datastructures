@@ -14,10 +14,10 @@ public class Substrings {
         int count = 0;
         for (int i = 0; i < s.length(); i++) {
             for (int j = i; j < s.length(); j++) {
-                System.out.println(s.substring(i,j+1));
-                if(!set.contains(s.substring(i,j+1))) {
+                System.out.println(s.substring(i, j + 1));
+                if (!set.contains(s.substring(i, j + 1))) {
                     count++;
-                    set.add(s.substring(i,j+1));
+                    set.add(s.substring(i, j + 1));
                 }
             }
         }
@@ -25,7 +25,7 @@ public class Substrings {
     }
 
     public static void main(String[] args) {
-        String s =  "abaa";
+        String s = "abaa";
         print(s);
     }
 }

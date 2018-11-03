@@ -9,19 +9,20 @@ public class IsListPalindrome {
     class ListNode<T> {
         T val;
         ListNode<T> next;
+
         ListNode(T x) {
             val = x;
         }
     }
 
-    boolean isSameList(ListNode x , ListNode y) {
+    boolean isSameList(ListNode x, ListNode y) {
 
-        while (x!= null && y!= null) {
-             if(!x.val.equals(y.val)) {
-                 return false;
-             }
-             x = x.next;
-             y = y.next;
+        while (x != null && y != null) {
+            if (!x.val.equals(y.val)) {
+                return false;
+            }
+            x = x.next;
+            y = y.next;
         }
         return true;
     }
@@ -34,16 +35,16 @@ public class IsListPalindrome {
         // reverse the first half while finding the mid point
 
         while (fast != null && fast.next != null) {
-             fast = fast.next.next;
-             ListNode temp = pre;
-             pre = slow;
-             slow = slow.next;
-             pre.next = temp;
+            fast = fast.next.next;
+            ListNode temp = pre;
+            pre = slow;
+            slow = slow.next;
+            pre.next = temp;
         }
-        if (fast!= null) {
+        if (fast != null) {
             slow = slow.next;
         }
 
-        return isSameList(pre,slow);
+        return isSameList(pre, slow);
     }
 }

@@ -15,26 +15,25 @@ public class LinkedList {
     }
 
     /**
-
      * Print the contents of linked list
      */
-    public void print(){
-         if(head == null){
-             throw new IllegalArgumentException("the list is empty");
-         }
+    public void print() {
+        if (head == null) {
+            throw new IllegalArgumentException("the list is empty");
+        }
         ListNode temp = head;
 
-         while (temp != null){
-              System.out.print(temp.data + " ->");
-              temp = temp.next;
-         }
+        while (temp != null) {
+            System.out.print(temp.data + " ->");
+            temp = temp.next;
+        }
     }
 
     /**
      * Inserting an item in the SLL and return it's head
      */
 
-    public ListNode insertBeforeHead(int k){
+    public ListNode insertBeforeHead(int k) {
         // if the head is null , create a new node and make it head
 
         ListNode newNode = new ListNode(k);
@@ -47,35 +46,35 @@ public class LinkedList {
      * Insert at the end of the list
      */
 
-    public ListNode insertAtTheEnd( int k){
-         if(head == null){
-             return insertBeforeHead(k);
-         }
+    public ListNode insertAtTheEnd(int k) {
+        if (head == null) {
+            return insertBeforeHead(k);
+        }
 
 
-         ListNode temp = head;
+        ListNode temp = head;
         // create a new node
-         ListNode newNode = new ListNode(k);
+        ListNode newNode = new ListNode(k);
 
-         while (temp.next != null){
-             temp = temp.next;
-         }
+        while (temp.next != null) {
+            temp = temp.next;
+        }
 
-         temp.next = newNode;
-         newNode.next = null;
-         return head;
+        temp.next = newNode;
+        newNode.next = null;
+        return head;
     }
 
     /**
      * Insert at the middle
      */
-    public ListNode insertAtPosition(int position , int k) {
+    public ListNode insertAtPosition(int position, int k) {
 
-        if(position < 0 ) {
-             return insertBeforeHead(k);
+        if (position < 0) {
+            return insertBeforeHead(k);
         }
 
-        if(position >= getLength()) {
+        if (position >= getLength()) {
             return insertAtTheEnd(k);
         }
         // insert at the middle
@@ -83,8 +82,8 @@ public class LinkedList {
         ListNode curr = head;
         ListNode newNode = new ListNode(k);
 
-        for (int i = 1 ; i < position ; i++) {
-             curr = curr.next;
+        for (int i = 1; i < position; i++) {
+            curr = curr.next;
         }
 
         newNode.next = curr.next;
@@ -95,32 +94,31 @@ public class LinkedList {
     /**
      * SLL deletion
      */
-    public void removeFromHead(){
-          if(head == null){
-              throw new IllegalArgumentException("head is empty");
-          }
-          ListNode temp = head;
-          head = temp.next;
-          temp.next = null;
+    public void removeFromHead() {
+        if (head == null) {
+            throw new IllegalArgumentException("head is empty");
+        }
+        ListNode temp = head;
+        head = temp.next;
+        temp.next = null;
 
     }
 
     /**
      * remove from a position sll
-     *
      */
 
-    public synchronized ListNode  removeFrom(int position){
+    public synchronized ListNode removeFrom(int position) {
 
-           if(head == null){
-               throw new IllegalArgumentException("head cannot be empty ");
-           }
+        if (head == null) {
+            throw new IllegalArgumentException("head cannot be empty ");
+        }
 
-           ListNode temp = head;
+        ListNode temp = head;
 
         // get the node at the position
         for (int i = 1; i < position; i++) {
-               temp = temp.next;
+            temp = temp.next;
         }
 
         temp.next = temp.next.next;
@@ -132,34 +130,33 @@ public class LinkedList {
      */
 
     public synchronized ListNode removeMatched(Integer target) {
-            if(head == null){
-                throw new IllegalArgumentException("head cannot be empty !");
-            }
+        if (head == null) {
+            throw new IllegalArgumentException("head cannot be empty !");
+        }
 
-            // create a fake node
-            ListNode fakeHead = new ListNode(0);
-            fakeHead.next = head;
-            ListNode curr = fakeHead;
+        // create a fake node
+        ListNode fakeHead = new ListNode(0);
+        fakeHead.next = head;
+        ListNode curr = fakeHead;
 
-            while (curr.next != null){
-                     if(curr.next.data == target){
-                         curr.next = curr.next.next;
-                     }
-                     else {
-                         curr = curr.next;
-                     }
+        while (curr.next != null) {
+            if (curr.next.data == target) {
+                curr.next = curr.next.next;
+            } else {
+                curr = curr.next;
             }
-            return fakeHead.next;
+        }
+        return fakeHead.next;
     }
 
-    public int getLength(){
-         if(head == null){
-             return 0;
-         }
-         ListNode temp = head;
+    public int getLength() {
+        if (head == null) {
+            return 0;
+        }
+        ListNode temp = head;
         int counter = 1;
 
-        while (temp != null){
+        while (temp != null) {
             temp = temp.next;
             counter++;
         }
@@ -169,30 +166,30 @@ public class LinkedList {
     /**
      * Empty a list
      */
-    public void clearList(){
-         if(head == null){
-             return;
-         }
-         head = null;
+    public void clearList() {
+        if (head == null) {
+            return;
+        }
+        head = null;
     }
 
     /**
      * Find the position of first matching value in the list
      */
-    public int searchByValue(Integer data){
+    public int searchByValue(Integer data) {
         // head is null
-        if(head == null){
-               return -1;
-           }
+        if (head == null) {
+            return -1;
+        }
 
         ListNode node = head;
         int counter = 1;
 
-        while (node != null){
+        while (node != null) {
 
-                 if(node.data == data){
-                      return counter;
-                 }
+            if (node.data == data) {
+                return counter;
+            }
             counter++;
             node = node.next;
         }

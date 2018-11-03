@@ -10,7 +10,7 @@ public class BlockingQueue<T> {
     private Queue<T> queue = new LinkedList<T>();
     private int limit;
 
-    public BlockingQueue(int limit){
+    public BlockingQueue(int limit) {
         this.limit = limit;
     }
 
@@ -27,11 +27,11 @@ public class BlockingQueue<T> {
     }
 
     public synchronized void put(T t) throws InterruptedException {
-         while (isFull()) {
-             wait();
-         }
-         queue.add(t);
-         notifyAll();
+        while (isFull()) {
+            wait();
+        }
+        queue.add(t);
+        notifyAll();
     }
 
     public synchronized T get() throws InterruptedException {

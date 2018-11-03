@@ -13,24 +13,24 @@ public class ReverseSentence {
     String reverse(String[] words) {
 
         int i = 0;
-        int j = words.length-1;
+        int j = words.length - 1;
 
         while (i < j) {
-            swap(i,j,words);
+            swap(i, j, words);
             i++;
             j--;
         }
         StringBuilder sb = new StringBuilder("");
 
-        for (int k = 0; k < words.length-1; k++) {
+        for (int k = 0; k < words.length - 1; k++) {
             sb.append(words[k]);
             sb.append(" ");
         }
-        sb.append(words[words.length-1]);
+        sb.append(words[words.length - 1]);
         return sb.toString();
     }
 
-    public void swap(int i , int j , String[] words) {
+    public void swap(int i, int j, String[] words) {
         String temp = words[i];
         words[i] = words[j];
         words[j] = temp;

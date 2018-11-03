@@ -14,16 +14,16 @@ public class PairsSum {
 
         Set<Integer> set = new HashSet<>();
 
-        for (int i :a) {
+        for (int i : a) {
             set.add(i);
         }
         int count = 0;
         for (int i = 0; i < a.length; i++) {
-             int j = a.length-1;
+            int j = a.length - 1;
 
             while (i < j) {
-                int pair = a[i]+a[j];
-                if(set.contains(pair)) {
+                int pair = a[i] + a[j];
+                if (set.contains(pair)) {
                     count++;
                 }
                 j--;
@@ -32,6 +32,7 @@ public class PairsSum {
         }
         return count;
     }
+
     public static void main(String[] args) {
 
     }

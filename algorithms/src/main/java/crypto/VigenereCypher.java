@@ -29,23 +29,23 @@ public class VigenereCypher {
             if (c < start || c > end) {
                 continue;
             }
-            stringBuilder.append((char) ((c - key.charAt(j)) % 94 ));
+            stringBuilder.append((char) ((c - key.charAt(j)) % 94));
             j = ++j % key.length();
         }
         return stringBuilder.toString();
     }
 
-    public static void main(String[] args){
+    public static void main(String[] args) {
         String key = "encodeThisNow";
         String original = "What The World Needs!";
 
         String key2 = "CAT";
         String ori2 = "PUPPY";
 
-        String enc = encrypt(original,key);
+        String enc = encrypt(original, key);
         //String enc2 = encrypt(ori2,key2);
 
         System.out.println("the encrypted code " + enc);
-        System.out.println(decrypt(enc,key));
+        System.out.println(decrypt(enc, key));
     }
 }

@@ -8,7 +8,7 @@ import java.util.*;
 public class WordBreak {
 
     public static boolean findUsingDP(String s, HashSet<String> dict,
-                               HashSet<String> memory, String answer) {
+                                      HashSet<String> memory, String answer) {
         if (s.length() == 0) {
             System.out.println(answer);
             return true;
@@ -37,16 +37,16 @@ public class WordBreak {
         }
     }
 
-    public static  boolean wordBreak(String s, Set<String> wordDict) {
+    public static boolean wordBreak(String s, Set<String> wordDict) {
 
         boolean[] dp = new boolean[s.length()];
 
         dp[0] = true;
 
-        for(int i = 1; i < s.length(); i++) {
-            for(int j = 0; j < i; j++) {
+        for (int i = 1; i < s.length(); i++) {
+            for (int j = 0; j < i; j++) {
 
-                if(dp[j] && wordDict.contains(s.substring(j, i))) {
+                if (dp[j] && wordDict.contains(s.substring(j, i))) {
 
                     dp[i] = true;
                     break;
@@ -57,24 +57,24 @@ public class WordBreak {
 
         }
 
-        return dp[s.length()-1];
+        return dp[s.length() - 1];
 
     }
 
-    public static void main(String[] args){
-        String[] words = new String[]{"aaaa","aaa"};
+    public static void main(String[] args) {
+        String[] words = new String[]{"aaaa", "aaa"};
         HashSet<String> hs = new HashSet<String>();
         hs.add("aaaa");
         hs.add("aaa");
         String s = "aaaaaaa";
         HashSet<String> memoization = new HashSet<String>();
         //findUsingDP("aaaaaaa",hs,memoization,"");
-        System.out.print(wordBreak(s,hs));
+        System.out.print(wordBreak(s, hs));
 //        Queue<Integer> queue = new Queue<>();
 //        while (queue.isEmpty())
         Queue<Integer> q = new LinkedList<>();
         List<Integer> list = new ArrayList<>();
         Stack<Integer> stack = new Stack<>();
-      //words.length
+        //words.length
     }
 }

@@ -4,24 +4,24 @@ package multiThreading;
  * Created by archithrapaka on 6/27/17.
  */
 public class Lock {
-    private boolean isLocked      = false;
-    private Thread  lockingThread = null;
+    private boolean isLocked = false;
+    private Thread lockingThread = null;
 
-    public synchronized void lock() throws InterruptedException{
-        while(isLocked){
+    public synchronized void lock() throws InterruptedException {
+        while (isLocked) {
             wait();
         }
-        isLocked      = true;
+        isLocked = true;
         lockingThread = Thread.currentThread();
     }
 
-    public synchronized void unlock(){
-        if(this.lockingThread != Thread.currentThread()){
+    public synchronized void unlock() {
+        if (this.lockingThread != Thread.currentThread()) {
             throw new IllegalMonitorStateException(
                     "Calling thread has not locked this lock");
         }
-        isLocked      = false;
+        isLocked = false;
         lockingThread = null;
-        notify();
+        notifyAll();
     }
 }

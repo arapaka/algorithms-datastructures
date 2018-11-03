@@ -24,17 +24,17 @@ public class TopologicalSortingGeneral<K> {
         private ArrayList<K> vertices; // vertices array
         private LinkedList<K>[] adj; // adjacency lists
 
-        public Digraph(int v , ArrayList<K> vertices){
+        public Digraph(int v, ArrayList<K> vertices) {
             this.vertices = vertices; // cannot instantiate the type parameter directly
             adj = new LinkedList[v];
 
             // iterate the vertices
-            for (int i = 0;i < v;i++) {
+            for (int i = 0; i < v; i++) {
                 adj[i] = new LinkedList<K>();
             }
         }
 
-        void addEdge(K u , K v) {
+        void addEdge(K u, K v) {
             //adj[u].add(v);
             int index = vertices.indexOf(u); // get the index of Kth Object
 
@@ -42,14 +42,14 @@ public class TopologicalSortingGeneral<K> {
         }
     }
 
-    void TSortUtil(int v , boolean[] visited , Stack<K> stack) {
+    void TSortUtil(int v, boolean[] visited, Stack<K> stack) {
         visited[v] = true;
 
-        for (K k:digraph.adj[v]) {
-              int index = digraph.vertices.indexOf(k);
-              if(!visited[index]) {
-                  TSortUtil(index,visited,stack);
-              }
+        for (K k : digraph.adj[v]) {
+            int index = digraph.vertices.indexOf(k);
+            if (!visited[index]) {
+                TSortUtil(index, visited, stack);
+            }
         }
         stack.push(this.digraph.vertices.get(v));
     }
@@ -57,12 +57,12 @@ public class TopologicalSortingGeneral<K> {
     void TSort() {
         boolean[] visited = new boolean[digraph.vertices.size()];
         Stack<K> stack = new Stack<K>();
-         ArrayList<K> vertices = this.digraph.vertices;
+        ArrayList<K> vertices = this.digraph.vertices;
 
         for (int i = 0; i < vertices.size(); i++) {
-              if(!visited[i]) {
-                  TSortUtil(i,visited,stack);
-              }
+            if (!visited[i]) {
+                TSortUtil(i, visited, stack);
+            }
         }
         System.out.println("Topological sorting order !");
 
@@ -73,16 +73,16 @@ public class TopologicalSortingGeneral<K> {
 
     public static void main(String[] args) {
 
-          String[] vertices = new String[]{"NYC","SFO","STL","HYD","BGL","SEA"};
-           ArrayList<String> verticesList = new ArrayList<>(Arrays.asList(vertices));
+        String[] vertices = new String[]{"NYC", "SFO", "STL", "HYD", "BGL", "SEA"};
+        ArrayList<String> verticesList = new ArrayList<>(Arrays.asList(vertices));
 
-           Digraph<String> digraph = new Digraph<String>(6, verticesList);
-           digraph.addEdge("SEA","STL");
-        digraph.addEdge("SEA","NYC");
-        digraph.addEdge("BGL","NYC");
-        digraph.addEdge("BGL","SFO");
-        digraph.addEdge("STL","HYD");
-        digraph.addEdge("HYD","SFO");
+        Digraph<String> digraph = new Digraph<String>(6, verticesList);
+        digraph.addEdge("SEA", "STL");
+        digraph.addEdge("SEA", "NYC");
+        digraph.addEdge("BGL", "NYC");
+        digraph.addEdge("BGL", "SFO");
+        digraph.addEdge("STL", "HYD");
+        digraph.addEdge("HYD", "SFO");
         TopologicalSortingGeneral<String> topologicalSorting = new TopologicalSortingGeneral(digraph);
         topologicalSorting.TSort();
 

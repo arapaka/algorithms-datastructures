@@ -9,7 +9,7 @@ import java.util.concurrent.locks.ReentrantLock;
  */
 class BoundedBuffer {
     final Lock lock = new ReentrantLock();
-    final Condition notFull  = lock.newCondition();
+    final Condition notFull = lock.newCondition();
     final Condition notEmpty = lock.newCondition();
 
     final Object[] items = new Object[100];

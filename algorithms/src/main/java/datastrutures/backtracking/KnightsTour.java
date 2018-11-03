@@ -6,14 +6,14 @@ package datastrutures.backtracking;
 public class KnightsTour {
     static final int N = 10;
 
-    public static boolean validMove (int[][] sol , int x, int y ) {
-        return (x >= 0 && x < N) && (y >=0 && y< N) && sol[x][y] == 0;
+    public static boolean validMove(int[][] sol, int x, int y) {
+        return (x >= 0 && x < N) && (y >= 0 && y < N) && sol[x][y] == 0;
     }
 
     static void printSol(int[][] sol) {
         for (int i = 0; i < N; i++) {
             for (int j = 0; j < N; j++) {
-                 System.out.print(sol[i][j]);
+                System.out.print(sol[i][j]);
             }
             System.out.println();
         }
@@ -29,10 +29,10 @@ public class KnightsTour {
             }
         }
 
-        int[] xMove = {2,1,-1,-2 ,-1,-2,1,2};
-        int[] yMove = {1,2,2,1,   -2,-1,-2,-1};
+        int[] xMove = {2, 1, -1, -2, -1, -2, 1, 2};
+        int[] yMove = {1, 2, 2, 1, -2, -1, -2, -1};
 
-        if(solveKt(0,0,1,sol,xMove,yMove)) {
+        if (solveKt(0, 0, 1, sol, xMove, yMove)) {
             printSol(sol);
             return true;
         }
@@ -41,35 +41,35 @@ public class KnightsTour {
     }
 
     private static boolean solveKt(int x, int y, int movei, int[][] sol, int[] xMove, int[] yMove) {
-            int k , nextX , nextY;
+        int k, nextX, nextY;
 
-            if(movei == N*N) {
-                return true;
-            }
+        if (movei == N * N) {
+            return true;
+        }
 
         /**
          * try all moves from current cordinate
          */
-        for (k = 0; k < 8 ; k++){
+        for (k = 0; k < 8; k++) {
             nextX = x + xMove[k];
             nextY = y + yMove[y];
 
-             if(validMove(sol,nextX,nextY)) {
-                 sol[nextX][nextY] = movei;
+            if (validMove(sol, nextX, nextY)) {
+                sol[nextX][nextY] = movei;
 
-                 if(solveKt(nextX,nextY,movei+1,sol,xMove,yMove)) {
-                     return true;
-                 }
-                 // backtrack
-                 else {
-                     sol[nextX][nextY] = 0;
-                 }
-             }
+                if (solveKt(nextX, nextY, movei + 1, sol, xMove, yMove)) {
+                    return true;
+                }
+                // backtrack
+                else {
+                    sol[nextX][nextY] = 0;
+                }
+            }
         }
         return true;
     }
 
-    public static void main(String[] args){
+    public static void main(String[] args) {
         knightsTour();
     }
 

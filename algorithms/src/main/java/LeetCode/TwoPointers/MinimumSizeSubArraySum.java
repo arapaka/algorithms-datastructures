@@ -5,17 +5,17 @@ package LeetCode.TwoPointers;
  */
 public class MinimumSizeSubArraySum {
 
-    public int findMinSize(int[] a , int target) {
-        if(a == null || a.length == 0) {
+    public int findMinSize(int[] a, int target) {
+        if (a == null || a.length == 0) {
             return 0;
         }
-        int i = 0,j = 0, sum = 0 , min = Integer.MAX_VALUE;
+        int i = 0, j = 0, sum = 0, min = Integer.MAX_VALUE;
 
         while (j < a.length) {
             sum += a[j++];
 
             while (sum >= target) {
-                min = Math.min(min,j-i);
+                min = Math.min(min, j - i);
                 sum -= a[i++];
             }
         }

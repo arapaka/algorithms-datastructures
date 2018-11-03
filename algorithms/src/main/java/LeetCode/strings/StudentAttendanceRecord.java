@@ -6,19 +6,20 @@ public class StudentAttendanceRecord {
         int countA = 0;
 
         for (char c : s.toCharArray()) {
-             if(c == 'A') {
-                 countA++;
-             }
+            if (c == 'A') {
+                countA++;
+            }
         }
         return countA <= 1 && s.indexOf("LLL") < 0;
     }
 
     // best
     public boolean checkRecord2(String s) {
-        if(s.indexOf("A") != s.lastIndexOf("A") || s.contains("LLL"))
+        if (s.indexOf("A") != s.lastIndexOf("A") || s.contains("LLL"))
             return false;
         return true;
     }
+
     public static void main(String[] args) {
 
     }

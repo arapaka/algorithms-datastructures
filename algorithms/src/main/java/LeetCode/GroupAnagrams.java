@@ -11,21 +11,20 @@ public class GroupAnagrams {
 
         List<List<String>> list = new ArrayList<>();
 
-        Map<Integer,Integer> map = new HashMap<>();
+        Map<Integer, Integer> map = new HashMap<>();
 
-        for(String s : strs) {
+        for (String s : strs) {
             int key = 1;
-            for (char c: s.toCharArray()) {
+            for (char c : s.toCharArray()) {
                 key *= prime[c - 'a'];
             }
             List<String> subList;
-            if(map.containsKey(key)) {
+            if (map.containsKey(key)) {
                 subList = list.get(map.get(key));
-            }
-            else {
+            } else {
                 subList = new ArrayList<>();
                 list.add(subList);
-                map.put(key,list.size()-1);
+                map.put(key, list.size() - 1);
             }
             subList.add(s);
         }

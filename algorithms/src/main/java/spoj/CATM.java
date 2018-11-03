@@ -7,11 +7,11 @@ import java.util.Scanner;
  */
 public class CATM {
 
-    static class Point{
+    static class Point {
         int x;
         int y;
 
-        public Point(int x , int y) {
+        public Point(int x, int y) {
             this.x = x;
             this.y = y;
         }
@@ -20,6 +20,7 @@ public class CATM {
             return Math.abs(this.x - other.x) == Math.abs(this.y - other.y);
         }
     }
+
     public static void main(String[] args) {
         Scanner scanner = new Scanner(System.in);
         int n = scanner.nextInt();
@@ -30,20 +31,20 @@ public class CATM {
 
             int x1 = scanner.nextInt();
             int y1 = scanner.nextInt();
-            Point mouse = new Point(x1,y1);
+            Point mouse = new Point(x1, y1);
 
             int x2 = scanner.nextInt();
             int y2 = scanner.nextInt();
-            Point cat1 = new Point(x2,y2);
+            Point cat1 = new Point(x2, y2);
 
             int x3 = scanner.nextInt();
             int y3 = scanner.nextInt();
 
-            Point cat2 = new Point(x3,y3);
+            Point cat2 = new Point(x3, y3);
 
             scanner.nextLine();
 
-            if(mouse.isCollinear(cat1) && mouse.isCollinear(cat2)) {
+            if (mouse.isCollinear(cat1) && mouse.isCollinear(cat2)) {
                 System.out.println("NO");
             } else {
                 System.out.println("YES");

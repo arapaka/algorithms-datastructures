@@ -9,17 +9,17 @@ public class Stack<E> {
     private E[] elements;
     int size;
 
-    public Stack(int size){
+    public Stack(int size) {
         this.elements = (E[]) new Object[size];
     }
 
-    public void push(E that){
+    public void push(E that) {
         ensureCapacity();
         elements[++size] = that;
     }
 
     public E pop() {
-        if(size == 0) {
+        if (size == 0) {
             throw new EmptyStackException();
         }
         E top = elements[--size];
@@ -28,33 +28,34 @@ public class Stack<E> {
     }
 
     private void ensureCapacity() {
-          if(size == elements.length) {
-              E[] oldElements = elements;
-              elements = (E[]) new Object[2*elements.length+1];
-              System.arraycopy(oldElements,0,elements,0,size);
-          }
+        if (size == elements.length) {
+            E[] oldElements = elements;
+            elements = (E[]) new Object[2 * elements.length + 1];
+            System.arraycopy(oldElements, 0, elements, 0, size);
+        }
     }
 
     public void print() {
-        if(this.size == 0) {
+        if (this.size == 0) {
             System.out.print("stack is empty");
         }
         for (int i = size; i > 0; i--) {
             System.out.println(elements[i]);
         }
     }
+
     public static void main(String[] args) {
 
         Stack<String> stack = new Stack<String>(11);
         stack.push("hello");
         stack.push("world");
 
-       //stack.print();
+        //stack.print();
 
         String top = stack.pop();
-       //stack.print();
+        //stack.print();
 
-       //stack.pop();
+        //stack.pop();
         stack.print();
     }
 }

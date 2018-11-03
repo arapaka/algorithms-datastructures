@@ -13,7 +13,7 @@ public class SummaryArray {
 //    }
 
     public static void main(String[] args) {
-        int nums[] = {3,7,9};
+        int nums[] = {3, 7, 9};
 //        String[] s = composeRanges(nums);
 //        for (String s1 :s) {
 //            System.out.println(s1);

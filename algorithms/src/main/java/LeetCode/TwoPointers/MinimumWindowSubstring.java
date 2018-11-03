@@ -12,37 +12,38 @@ public class MinimumWindowSubstring {
         int head = 0;
         int d = Integer.MAX_VALUE;
         int[] count = new int[256]; // ascii
-        for (char c:t.toCharArray()) {
+        for (char c : t.toCharArray()) {
             count[c]++;
         }
         int counter = count.length;
 
         while (end < s.length()) {
-             if(count[s.charAt(end)] > 0) {
-                 counter--;
-             }
-             count[s.charAt(end)]--;
-             end++;
+            if (count[s.charAt(end)] > 0) {
+                counter--;
+            }
+            count[s.charAt(end)]--;
+            end++;
 
-             while (counter == 0) {
-                   if(end - begin < d) {
-                       d = end-begin;
-                       head = begin;
-                   }
-                 count[s.charAt(begin)]++;
-                   if(count[s.charAt(begin)] > 0) {
-                       counter++;
-                   }
-                  begin++;
-             }
+            while (counter == 0) {
+                if (end - begin < d) {
+                    d = end - begin;
+                    head = begin;
+                }
+                count[s.charAt(begin)]++;
+                if (count[s.charAt(begin)] > 0) {
+                    counter++;
+                }
+                begin++;
+            }
         }
-        if(d != Integer.MAX_VALUE) {
-            return s.substring(head,d);
+        if (d != Integer.MAX_VALUE) {
+            return s.substring(head, d);
         } else {
             return "";
         }
     }
-    public void main(String[] args){
+
+    public void main(String[] args) {
 
     }
 }

@@ -15,10 +15,10 @@ public class DoublyLinkedList {
 
     public DLLNode insertBeforeHead(int k) {
         DLLNode newNode = new DLLNode(k);
-          if (head == null) {
-              head = newNode;
-              return head;
-          }
+        if (head == null) {
+            head = newNode;
+            return head;
+        }
 
         newNode.setNext(head);
         head.setPrev(newNode);
@@ -30,15 +30,15 @@ public class DoublyLinkedList {
     public DLLNode insertAtTheTail(int k) {
         DLLNode newNode = new DLLNode(k);
 
-          if (head == null) {
-              head = newNode;
-              return head;
-          }
+        if (head == null) {
+            head = newNode;
+            return head;
+        }
 
         DLLNode curr = head;
 
-          while (curr != null) {
-               curr = curr.getNext();
+        while (curr != null) {
+            curr = curr.getNext();
         }
 
         // curr is the tail
@@ -51,15 +51,15 @@ public class DoublyLinkedList {
 
     // insertHelper at some position
     public DLLNode insertAtPosition(int value, int position) {
-            if (position <= 0 || head == null) {
-                return insertBeforeHead(value);
-            }
+        if (position <= 0 || head == null) {
+            return insertBeforeHead(value);
+        }
 
-            if (position >= length) {
-                return insertAtTheTail(value);
-            }
+        if (position >= length) {
+            return insertAtTheTail(value);
+        }
 
-            DLLNode curr = head;
+        DLLNode curr = head;
 
         for (int i = 1; i < position; i++) {
             curr = curr.getNext();
@@ -102,7 +102,7 @@ public class DoublyLinkedList {
         DLLNode temp = head;
 
         while (temp != null) {
-             temp = temp.getNext();
+            temp = temp.getNext();
         }
 
         // temp is the last node , the Tail
@@ -115,20 +115,20 @@ public class DoublyLinkedList {
     }
 
     public DLLNode deleteFromPosition(int position) {
-         if (head == null || head.getNext() == null) {
-             return deleteFromHead();
-         }
-          if (position <= 0) {
-             return deleteFromHead();
-          }
-          if (position >= length) {
-             return deleteFromTail();
-          }
+        if (head == null || head.getNext() == null) {
+            return deleteFromHead();
+        }
+        if (position <= 0) {
+            return deleteFromHead();
+        }
+        if (position >= length) {
+            return deleteFromTail();
+        }
 
-          DLLNode temp = head;
+        DLLNode temp = head;
 
         for (int i = 1; i < position; i++) {
-             temp = temp.getNext();
+            temp = temp.getNext();
         }
         DLLNode prev = temp.getPrev();
         DLLNode next = temp.getNext();
@@ -142,44 +142,44 @@ public class DoublyLinkedList {
     }
 
     public void printDll() {
-         if (head == null) {
-             System.out.println("the list is empty");
-             return;
-         }
-         DLLNode temp = head;
-         while (temp != null) {
-             System.out.print(temp.getData() + "->");
-                     temp = temp.getNext();
-         }
+        if (head == null) {
+            System.out.println("the list is empty");
+            return;
+        }
+        DLLNode temp = head;
+        while (temp != null) {
+            System.out.print(temp.getData() + "->");
+            temp = temp.getNext();
+        }
     }
 
     public synchronized DLLNode removeMatched(int k) {
-         if (head == null) {
-             throw new IllegalArgumentException("head is empty!");
-         }
+        if (head == null) {
+            throw new IllegalArgumentException("head is empty!");
+        }
 
-         if (head.getData() == k) {
-             head = head.getNext();
-             head.setPrev(null);
-             return head;
-         }
+        if (head.getData() == k) {
+            head = head.getNext();
+            head.setPrev(null);
+            return head;
+        }
 
-         DLLNode p = head;
+        DLLNode p = head;
 
         while (p != null) {
-               if (p.getData() == k) {
-                   System.out.println("Removing node : " + p.getData());
-                   p.getPrev().setNext(p.getNext());
-                   p.getNext().setPrev(p.getPrev());
-               }
-               p = p.getNext();
-         }
-         return p;
+            if (p.getData() == k) {
+                System.out.println("Removing node : " + p.getData());
+                p.getPrev().setNext(p.getNext());
+                p.getNext().setPrev(p.getPrev());
+            }
+            p = p.getNext();
+        }
+        return p;
     }
 
-    public static void main(String...args) {
+    public static void main(String... args) {
         DoublyLinkedList dll = new DoublyLinkedList();
-       //DLLNode node = null;
+        //DLLNode node = null;
 
 //        for (int i = 0; i < 7; i+d+) {
 //            node = new DLLNode(i);
@@ -187,10 +187,10 @@ public class DoublyLinkedList {
 //        }
 //
 //        DLL.printDll(node);
-       dll.insertBeforeHead(1);
-       dll.insertBeforeHead(2);
-       dll.insertBeforeHead(3);
-       dll.insertBeforeHead(4);
+        dll.insertBeforeHead(1);
+        dll.insertBeforeHead(2);
+        dll.insertBeforeHead(3);
+        dll.insertBeforeHead(4);
 
         dll.printDll();
         System.out.println("######");

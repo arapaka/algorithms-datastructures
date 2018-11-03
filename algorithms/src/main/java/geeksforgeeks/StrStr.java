@@ -13,6 +13,7 @@ public class StrStr {
 
     /**
      * Knuth Morris Pratt Algorithm
+     *
      * @param pattern
      * @param text
      */
@@ -51,7 +52,7 @@ public class StrStr {
         return lsp;
     }
 
-    public static void main(String[] args){
+    public static void main(String[] args) {
 
     }
 }

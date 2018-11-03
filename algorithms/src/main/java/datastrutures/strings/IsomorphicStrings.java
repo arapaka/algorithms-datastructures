@@ -8,39 +8,39 @@ import java.util.Map;
  */
 public class IsomorphicStrings {
 
-    public static Boolean isIsomorphic(String s , String t) {
+    public static Boolean isIsomorphic(String s, String t) {
 
-        if(s == null || t == null) {
+        if (s == null || t == null) {
             return false;
         }
-        if(s.length() != t.length()) {
+        if (s.length() != t.length()) {
             return false;
         }
 
         int n = s.length();
         int i = 0;
-        Map<Character,Character> map = new HashMap<>();
+        Map<Character, Character> map = new HashMap<>();
         while (i < n) {
             char c1 = s.charAt(i);
             char c2 = t.charAt(i);
 
-             // if mapping from c1 to c2 is not correct return false;
-             if(map.containsKey(c1)) {
-                 if(c2 != map.get(c1)) {
-                     return false;
-                 }
-             }
+            // if mapping from c1 to c2 is not correct return false;
+            if (map.containsKey(c1)) {
+                if (c2 != map.get(c1)) {
+                    return false;
+                }
+            }
 
-             if(map.containsValue(c2)) {
-                 return false;
-             }
+            if (map.containsValue(c2)) {
+                return false;
+            }
 
-            map.put(c1,c2);
+            map.put(c1, c2);
         }
         return true;
     }
 
-    public static void main(String[] args){
+    public static void main(String[] args) {
 
     }
 }

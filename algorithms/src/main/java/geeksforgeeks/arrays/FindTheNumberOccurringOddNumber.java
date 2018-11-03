@@ -11,13 +11,13 @@ public class FindTheNumberOccurringOddNumber {
 
     public static int findOddNumber(int[] a) {
         int xor = 0;
-        for (int i:a) {
+        for (int i : a) {
             xor = xor ^ i;
         }
         return xor;
     }
 
-    public static void main(String[] args){
+    public static void main(String[] args) {
         int[] a = {2, 3, 5, 4, 5, 2, 4, 3, 5, 2, 4, 4, 2};
         System.out.println(findOddNumber(a));
     }

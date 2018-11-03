@@ -6,7 +6,7 @@ import java.util.Collections;
 public class ReverseSentence {
 
     public String reverseWords(String s) {
-        if(null == s || s.trim().length() == 0 ){
+        if (null == s || s.trim().length() == 0) {
             return s.trim();
         }
         String[] split = s.trim().split("\\s+");
@@ -15,7 +15,7 @@ public class ReverseSentence {
 
     public String reverse(String[] s) {
         int i = 0;
-        int j = s.length-1;
+        int j = s.length - 1;
 
         while (i < j) {
             String temp = s[i];
@@ -25,11 +25,11 @@ public class ReverseSentence {
             j--;
         }
         StringBuilder sb = new StringBuilder();
-        for (int k = 0; k < s.length-1; k++) {
+        for (int k = 0; k < s.length - 1; k++) {
             sb.append(s[k]);
             sb.append(" ");
         }
-        sb.append(s[s.length-1]);
+        sb.append(s[s.length - 1]);
         return sb.toString();
     }
 
@@ -43,9 +43,9 @@ public class ReverseSentence {
 
     public static void main(String[] args) {
         String s = "       the sky        is            blue     ";
-       String[] s1 = s.trim().split("\\s+");
-       int i = 0;
-       for (String s2 : s1) {
+        String[] s1 = s.trim().split("\\s+");
+        int i = 0;
+        for (String s2 : s1) {
             System.out.println(i++ + ":" + s2);
         }
     }

@@ -5,13 +5,13 @@ package LeetCode.TwoPointers;
  */
 public class findTheDifference {
 
-    public static void printDiff(String s,String t) {
+    public static void printDiff(String s, String t) {
 
         int[] sCount = getCharCount(s);
 
         for (char c : t.toCharArray()) {
-            if(sCount[c] == 0) {
-                System.out.print("the missing char is : "+ c);
+            if (sCount[c] == 0) {
+                System.out.print("the missing char is : " + c);
                 break;
             }
         }
@@ -21,10 +21,11 @@ public class findTheDifference {
         int[] count = new int[126];
 
         for (int i = 0; i < s.length(); i++) {
-             count[s.charAt(i)]++;
+            count[s.charAt(i)]++;
         }
         return count;
     }
+
     public static void main(String[] args) {
 
     }

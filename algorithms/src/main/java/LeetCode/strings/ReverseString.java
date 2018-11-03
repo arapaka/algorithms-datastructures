@@ -3,12 +3,12 @@ package LeetCode.strings;
 public class ReverseString {
 
     public static String reverseString(String s) {
-        if(null == s || s.length() == 0) {
+        if (null == s || s.length() == 0) {
             return s;
         }
         char[] chars = s.toCharArray();
         int i = 0;
-        int j = s.length()-1;
+        int j = s.length() - 1;
         while (i < j) {
             char temp = chars[i];
             char ith = chars[j];

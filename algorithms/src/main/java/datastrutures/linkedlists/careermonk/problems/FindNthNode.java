@@ -9,20 +9,20 @@ import datastrutures.linkedlists.datastructuredefinitions.ListNode;
  */
 public class FindNthNode {
 
-    public static int findNthNode(ListNode head, int k){
+    public static int findNthNode(ListNode head, int k) {
         ListNode curr = head;
         ListNode nthNode = head; // traverse this node k steps
 
-        while (nthNode != null && k >=1) {
+        while (nthNode != null && k >= 1) {
             nthNode = nthNode.next;
             k--;
         }
 
-        while (curr != null && nthNode != null){
+        while (curr != null && nthNode != null) {
             curr = curr.next;
             nthNode = nthNode.next;
         }
-        return (int)curr.data;
+        return (int) curr.data;
         //
     }
 
@@ -36,7 +36,7 @@ public class FindNthNode {
         LS.insertBeforeHead(2);
         LS.insertBeforeHead(1);
 
-        System.out.print(findNthNode(LS.getHead(),3));
+        System.out.print(findNthNode(LS.getHead(), 3));
 
     }
 }

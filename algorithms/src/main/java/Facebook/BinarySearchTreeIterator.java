@@ -6,7 +6,7 @@ import java.util.Stack;
  * Created by archithrapaka on 4/22/17.
  */
 public class BinarySearchTreeIterator {
-        Stack<TreeNode> stack; // To Hold TreeNodes
+    Stack<TreeNode> stack; // To Hold TreeNodes
 
     // initialize the BST with TreeNode iterator roots
     public BinarySearchTreeIterator(TreeNode root) {
@@ -38,14 +38,14 @@ public class BinarySearchTreeIterator {
         TreeNode left;
         TreeNode right;
 
-        public TreeNode(int data){
+        public TreeNode(int data) {
             this.data = data;
             this.left = null;
             this.right = null;
         }
     }
 
-    public static void main(String[] args){
+    public static void main(String[] args) {
 
     }
 }

@@ -21,25 +21,25 @@ public class BinarySearchTree {
     }
 
     public Node insert(int n) {
-        return insertHelper(n,root);
+        return insertHelper(n, root);
     }
 
-    public Node insertHelper(int n , Node node) {
-        if(node == null) {
+    public Node insertHelper(int n, Node node) {
+        if (node == null) {
             node = new Node(n);
             return node;
         }
 
-        if(n <= node.data) {
-            return insertHelper(n,node.left);
+        if (n <= node.data) {
+            return insertHelper(n, node.left);
         }
-        return insertHelper(n,node.right);
+        return insertHelper(n, node.right);
     }
 
-    public void display () {
+    public void display() {
 
-        if(root == null) {
-           System.out.println("the root is null");
+        if (root == null) {
+            System.out.println("the root is null");
         }
 
     }

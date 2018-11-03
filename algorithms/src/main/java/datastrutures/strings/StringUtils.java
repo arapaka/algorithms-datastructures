@@ -12,19 +12,20 @@ public class StringUtils {
         int[] count = new int[256];
 
         for (int i = 0; i < s.length(); i++) {
-             count[s.charAt(i)]++;
+            count[s.charAt(i)]++;
         }
         return count;
     }
 
     // check String rotation
-    static boolean checkRotation(String s , String b) {
+    static boolean checkRotation(String s, String b) {
 
         return (s.length() == b.length()) && s.concat(s).contains(b);
     }
 
     /**
      * return sorted string
+     *
      * @param word
      * @return
      */
@@ -34,9 +35,9 @@ public class StringUtils {
         return new String(chars);
     }
 
-    public static String reverse(String s){
+    public static String reverse(String s) {
         StringBuilder stringBuilder = new StringBuilder("");
-        int i = s.length()-1;
+        int i = s.length() - 1;
         while (i >= 0) {
             stringBuilder.append(s.charAt(i));
             i--;
@@ -47,7 +48,7 @@ public class StringUtils {
     public static String reverseWords(String s) {
         String[] split = s.split(" ");
         StringBuilder sb = new StringBuilder("");
-        int i = split.length-1;
+        int i = split.length - 1;
 
         while (i >= 0) {
             sb.append(split[i]);
@@ -57,7 +58,7 @@ public class StringUtils {
         return sb.toString();
     }
 
-    public int lengthOfLongestSubstring(String s){
+    public int lengthOfLongestSubstring(String s) {
         int[] map = new int[128];
         int start = 0;
         int minStart = 0;
@@ -69,14 +70,14 @@ public class StringUtils {
         int minLength = Integer.MAX_VALUE;
 
         while (end < s.length()) {
-              if(map[s.charAt(end++)]++ > 0) counter++;
+            if (map[s.charAt(end++)]++ > 0) counter++;
 
-              while (counter > 0) {
-                   if(map[s.charAt(begin++)]-- > 1) {
-                       counter--;
-                       MAX = Math.max(MAX,end-begin);
-                   }
-              }
+            while (counter > 0) {
+                if (map[s.charAt(begin++)]-- > 1) {
+                    counter--;
+                    MAX = Math.max(MAX, end - begin);
+                }
+            }
         }
         return MAX;
     }

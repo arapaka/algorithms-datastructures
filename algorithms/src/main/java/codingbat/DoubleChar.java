@@ -2,6 +2,7 @@ package codingbat;
 
 import java.net.URL;
 import java.net.URLDecoder;
+
 /**
  * Created by archithrapaka on 4/26/17.
  */
@@ -10,7 +11,7 @@ public class DoubleChar {
     public static int countHi(String str) {
         int[] count = new int[256];
 
-        for(char c :str.toCharArray()) {
+        for (char c : str.toCharArray()) {
             count[c]++;
         }
         int h = count['h'];
@@ -23,8 +24,9 @@ public class DoubleChar {
         }
         return countHi;
     }
-    public static void decode(String s ) throws Exception {
-        String decode = URLDecoder.decode(s,"UTF-8");
+
+    public static void decode(String s) throws Exception {
+        String decode = URLDecoder.decode(s, "UTF-8");
         System.out.println(decode);
         String[] decodeSplit = decode.split("\\.");
         System.out.println(decodeSplit[1]);
@@ -36,6 +38,7 @@ public class DoubleChar {
 
         System.out.println(path.split("/")[1]);
     }
+
     public static void main(String[] args) throws Exception {
 //        System.out.print(countHi("ABChi hi") );
 //        System.out.print(countHi("abc hi ho"));

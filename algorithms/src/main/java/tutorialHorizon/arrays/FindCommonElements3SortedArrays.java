@@ -8,7 +8,7 @@ import java.util.List;
  */
 public class FindCommonElements3SortedArrays {
 
-    public static List<Integer> findCommonElems(int[] a , int[] b , int[] c) {
+    public static List<Integer> findCommonElems(int[] a, int[] b, int[] c) {
         int i = 0;
         int j = 0;
         int k = 0;
@@ -16,20 +16,16 @@ public class FindCommonElements3SortedArrays {
 
         while (i < a.length && j < b.length && k < c.length) {
 
-            if(a[i] == b[j] && b[j] == c[k]) {
-                    common.add(a[i]);
-                    i++;
-                    j++;
-                    k++;
-             }
-
-            else if (a[i] < b[j]) {
+            if (a[i] == b[j] && b[j] == c[k]) {
+                common.add(a[i]);
                 i++;
-            }
-            else if (b[j] < c[k]) {
                 j++;
-            }
-            else {
+                k++;
+            } else if (a[i] < b[j]) {
+                i++;
+            } else if (b[j] < c[k]) {
+                j++;
+            } else {
                 k++;
             }
         }
@@ -37,9 +33,9 @@ public class FindCommonElements3SortedArrays {
     }
 
     public static void main(String[] args) {
-        int[] a = {1,2,3,4,5,6,7,8,9,10};
-        int[] b = {1,3,5,6,7,8,12};
-        int[] c = {2,3,4,5,8,9};
-        System.out.println(findCommonElems(a,b,c));
+        int[] a = {1, 2, 3, 4, 5, 6, 7, 8, 9, 10};
+        int[] b = {1, 3, 5, 6, 7, 8, 12};
+        int[] c = {2, 3, 4, 5, 8, 9};
+        System.out.println(findCommonElems(a, b, c));
     }
 }

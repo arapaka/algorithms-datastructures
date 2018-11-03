@@ -5,10 +5,10 @@ package geeksforgeeks;
  */
 public class CountZerosInFactorial {
 
-	//public static int countZeros(Big)
+    //public static int countZeros(Big)
 
 
-	public static void main(String[] args) {
+    public static void main(String[] args) {
 
-	}
+    }
 }

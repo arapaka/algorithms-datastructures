@@ -2,7 +2,8 @@ package LeetCode.arrays;
 
 import java.util.Arrays;
 
-/** 561. Array Partition I
+/**
+ * 561. Array Partition I
  * Created by archithrapaka on 8/1/17.
  * Given an array of 2n integers,
  * your task is to group these integers into n pairs of integer,
@@ -16,9 +17,9 @@ public class ArrayPartition1 {
         int i = 0;
         int sum = 0;
 
-        while(i < nums.length) {
+        while (i < nums.length) {
             sum += nums[i];
-            i = i+2;
+            i = i + 2;
         }
         return sum;
     }

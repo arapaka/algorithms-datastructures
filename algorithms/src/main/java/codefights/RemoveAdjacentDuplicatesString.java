@@ -19,7 +19,7 @@ public class RemoveAdjacentDuplicatesString {
         }
 
         String result = String.valueOf(res);
-        return result.substring(0,j+1);
+        return result.substring(0, j + 1);
     }
 
     String removeDuplicateAdjacent(String s) {
@@ -27,8 +27,8 @@ public class RemoveAdjacentDuplicatesString {
         char[] chars = s.toCharArray();
         char previous = chars[0];
         sb.append(chars[0]);
-        for(int i = 1 ; i < chars.length ; i++) {
-            if(chars[i] != previous) {
+        for (int i = 1; i < chars.length; i++) {
+            if (chars[i] != previous) {
                 sb.append(chars[i]);
                 previous = chars[i];
             }

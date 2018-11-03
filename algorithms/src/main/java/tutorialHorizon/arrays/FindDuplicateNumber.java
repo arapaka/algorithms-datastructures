@@ -24,8 +24,8 @@ public class FindDuplicateNumber {
         return low;
     }
 
-    public static void main(String[] args){
-       int[] a = {1,2,3,5,8,6,7,4,3};
-       System.out.print(findDuplicate(a));
+    public static void main(String[] args) {
+        int[] a = {1, 2, 3, 5, 8, 6, 7, 4, 3};
+        System.out.print(findDuplicate(a));
     }
 }

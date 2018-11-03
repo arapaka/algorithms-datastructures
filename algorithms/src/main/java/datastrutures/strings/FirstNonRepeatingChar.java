@@ -7,16 +7,16 @@ public class FirstNonRepeatingChar {
 
     static void getFirstNonRepeatingChar(String s) {
         int[] count = new int[256];// count array of ascii
-        for (char c:s.toCharArray()) {
+        for (char c : s.toCharArray()) {
             count[c]++;
         }
 
-        for (char c:s.toCharArray()
-             ) {
-             if(count[c] == 1) {
-                 System.out.print(c);
-                 break;
-             }
+        for (char c : s.toCharArray()
+        ) {
+            if (count[c] == 1) {
+                System.out.print(c);
+                break;
+            }
         }
     }
 

@@ -14,17 +14,17 @@ public class FindTheFirstRepeatedElement {
 
         int index = -1;
 
-        for (int i = a.length-1; i >=0 ; i--) {
-              if(set.contains(a[i])) {
-                  index = i;
-              }
-              set.add(a[i]);
+        for (int i = a.length - 1; i >= 0; i--) {
+            if (set.contains(a[i])) {
+                index = i;
+            }
+            set.add(a[i]);
         }
         return index;
     }
 
     public static void main(String[] args) {
-        int[] a = {1,3,3,9,9,8,0,0,3,1};
+        int[] a = {1, 3, 3, 9, 9, 8, 0, 0, 3, 1};
         System.out.println(findRepeated(a));
     }
 }

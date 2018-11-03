@@ -11,6 +11,7 @@ public class MajorityElement {
 
     /**
      * Moore's Voting Algorithm
+     *
      * @param a
      * @return
      */
@@ -19,33 +20,32 @@ public class MajorityElement {
         int count = 1;
         // find candidate element in the array
         for (int i = 1; i < a.length; i++) {
-              if(a[i] == a[maj_index]) {
-                  count++;
-              }
-              else {
-                  count--;
-              }
+            if (a[i] == a[maj_index]) {
+                count++;
+            } else {
+                count--;
+            }
 
-              if(count == 0) {
-                  maj_index = i;
-                  count = 1;
-              }
+            if (count == 0) {
+                maj_index = i;
+                count = 1;
+            }
         }
 
         // find if the candidate algo is the majority element
         int candidateCount = 0;
         for (int i = 0; i < a.length; i++) {
-              if(a[i] == a[maj_index]) {
+            if (a[i] == a[maj_index]) {
                 candidateCount++;
-              }
-              if (candidateCount > a.length/2) {
-                  return i;
-              }
+            }
+            if (candidateCount > a.length / 2) {
+                return i;
+            }
         }
-       return -1;
+        return -1;
     }
 
-    public static void main(String[] args){
+    public static void main(String[] args) {
 
     }
 }

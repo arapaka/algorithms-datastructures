@@ -11,26 +11,25 @@ public class UnrolledLinkedList {
     private int length;
 
 
-    public void insert(int k){
+    public void insert(int k) {
         // no block heads initialized
 
-           if(length == 0) {
-               CircularLinkedList circularLinkedList = new CircularLinkedList();
-               circularLinkedList.insertAtTheFront(k);
-               blockHead = new BlockHead(circularLinkedList);
-               length++;
-               return;
-           }
+        if (length == 0) {
+            CircularLinkedList circularLinkedList = new CircularLinkedList();
+            circularLinkedList.insertAtTheFront(k);
+            blockHead = new BlockHead(circularLinkedList);
+            length++;
+            return;
+        }
 
-           // is the block head full
-        if(blockHead.getCapacity() < 4){
+        // is the block head full
+        if (blockHead.getCapacity() < 4) {
             CircularLinkedList circularLinkedList = blockHead.getCircularLinkedList();
             circularLinkedList.addToTail(k);
             blockHead.setCapacity(circularLinkedList.getLength());
             length++;
-        }
-        else {
-             createNewTailBlockHead(k);
+        } else {
+            createNewTailBlockHead(k);
         }
 
         // else it is full then either find or create a new block
@@ -39,16 +38,16 @@ public class UnrolledLinkedList {
     }
 
     public void print() {
-         if(blockHead == null) {
-             System.out.println("the list is empty");
-         }
+        if (blockHead == null) {
+            System.out.println("the list is empty");
+        }
 
-       BlockHead curr = blockHead;
+        BlockHead curr = blockHead;
 
-        while (curr != null){
-             curr.getCircularLinkedList().print();
-             System.out.println();
-             curr = curr.next;
+        while (curr != null) {
+            curr.getCircularLinkedList().print();
+            System.out.println();
+            curr = curr.next;
         }
     }
 
@@ -56,18 +55,18 @@ public class UnrolledLinkedList {
 
         BlockHead curr = blockHead;
 
-        while (curr != null && curr.next!= null) {
-              curr = curr.next;
+        while (curr != null && curr.next != null) {
+            curr = curr.next;
         }
 
         CircularLinkedList circularLinkedList = new CircularLinkedList();
         circularLinkedList.insertAtTheFront(k);
-        BlockHead newBlock =  new BlockHead(circularLinkedList);
+        BlockHead newBlock = new BlockHead(circularLinkedList);
         curr.next = newBlock;
         length++;
     }
 
-    public static void main(String[] args){
+    public static void main(String[] args) {
         UnrolledLinkedList ull = new UnrolledLinkedList();
         ull.insert(5);
         ull.insert(8);
@@ -105,17 +104,18 @@ public class UnrolledLinkedList {
             this.capacity = capacity;
         }
 
-        public BlockHead(){
+        public BlockHead() {
 
         }
 
-        public BlockHead(CircularLinkedList circularLinkedList){
+        public BlockHead(CircularLinkedList circularLinkedList) {
             this.circularLinkedList = circularLinkedList;
         }
 
-        public ListNode getHead(){
+        public ListNode getHead() {
             return circularLinkedList.getHead();
         }
+
         public ListNode getTail() {
             return circularLinkedList.getTail();
         }

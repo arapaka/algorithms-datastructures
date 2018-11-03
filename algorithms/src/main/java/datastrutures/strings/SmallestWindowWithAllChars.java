@@ -7,9 +7,9 @@ public class SmallestWindowWithAllChars {
 
     public static void minWindow(String s, String t) {
         String result = "";
-        if(s==""||t.length()>s.length()){
+        if (s == "" || t.length() > s.length()) {
             System.out.println("no min window");
-            return ;
+            return;
         }
 
         int[] map = new int[128];
@@ -18,15 +18,15 @@ public class SmallestWindowWithAllChars {
         int end = 0;
         int count = t.length();
         int minLength = Integer.MAX_VALUE;
-        for(char temp:t.toCharArray()){
+        for (char temp : t.toCharArray()) {
             map[temp]++;
         }
-        while(end<s.length()){
-            if(map[s.charAt(end++)]-- >0)
+        while (end < s.length()) {
+            if (map[s.charAt(end++)]-- > 0)
                 count--;
             //map[s.charAt(end)]--;
             //end++;
-            while(count==0){
+            while (count == 0) {
                 if (end - start < minLength) {
                     minStart = start;
                     minLength = end - start;
@@ -37,12 +37,12 @@ public class SmallestWindowWithAllChars {
                 start++;
             }
         }
-        System.out.print((minLength==Integer.MAX_VALUE)?"":s.substring(minStart, minStart+minLength));
+        System.out.print((minLength == Integer.MAX_VALUE) ? "" : s.substring(minStart, minStart + minLength));
     }
 
-    public static void main(String[] args){
-           String s = "this is a test string";
-           String pat = "tist";
-           minWindow(s,pat);
+    public static void main(String[] args) {
+        String s = "this is a test string";
+        String pat = "tist";
+        minWindow(s, pat);
     }
 }

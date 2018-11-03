@@ -5,68 +5,66 @@ package geeksforgeeks.arrays;
  */
 public class SearchInARotatedArray {
 
-    public static int findNumber(int[] a , int target) {
+    public static int findNumber(int[] a, int target) {
         int start = 0;
-        int end = a.length-1;
+        int end = a.length - 1;
 
         while (start <= end) {
-            int mid = (start + end)/2;
+            int mid = (start + end) / 2;
 
-             if(a[mid] == target) {
-                 return mid;
-             }
+            if (a[mid] == target) {
+                return mid;
+            }
             if (a[start] <= a[mid]) {
 
-                   if(target >= a[start] && target <= a[mid]) {
-                      end = mid-1;
-                   }
-                 else {
-                       start = mid+1;
-                   }
-             }
-            else if(target >= a[mid] && target <= a[end])  {
-                 start = mid+1;
-             } else {
-                 end = mid-1;
-             }
+                if (target >= a[start] && target <= a[mid]) {
+                    end = mid - 1;
+                } else {
+                    start = mid + 1;
+                }
+            } else if (target >= a[mid] && target <= a[end]) {
+                start = mid + 1;
+            } else {
+                end = mid - 1;
+            }
         }
         return -1;
     }
 
     // recursive method
-    public static int findInRotatedArray(int[] a , int target , int low , int high) {
+    public static int findInRotatedArray(int[] a, int target, int low, int high) {
 
         while (low <= high) {
 
-            int mid = (low+high)/2;
+            int mid = (low + high) / 2;
 
-            if(a[mid] == target) {
+            if (a[mid] == target) {
                 return mid;
             }
 
             // if a[left...mid] is sorted
-            if(a[low] <= a[mid]) {
+            if (a[low] <= a[mid]) {
 
                 // search left half if
-                if(target >= a[low] && target <= a[mid]) {
-                    return findInRotatedArray(a,target,low,mid-1);
+                if (target >= a[low] && target <= a[mid]) {
+                    return findInRotatedArray(a, target, low, mid - 1);
                 }
                 // search in right half
                 else {
-                    return findInRotatedArray(a,target,mid+1,high);
+                    return findInRotatedArray(a, target, mid + 1, high);
                 }
-            }
-            else if (target >= a[mid] && target <= a[high]) {
-                return findInRotatedArray(a,target,mid+1,high);
+            } else if (target >= a[mid] && target <= a[high]) {
+                return findInRotatedArray(a, target, mid + 1, high);
             } else {
-                return findInRotatedArray(a,target,low,mid-1);
+                return findInRotatedArray(a, target, low, mid - 1);
             }
         }
         return -1;
     }
+
     public static void main(String[] args) {
-        int a[] = { 10, 11, 12, 1, 2, 3, 4, 5, 6, 7, 8 };
-        System.out.println(findNumber(a,5));
-        System.out.println(findInRotatedArray(a,5,0,a.length-1));
+        int a[] = {10, 11, 12, 1, 2, 3, 4, 5, 6, 7, 8};
+        System.out.println(findNumber(a, 5));
+        System.out.println(findInRotatedArray(a, 5, 0, a.length - 1));
     }
 }

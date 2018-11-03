@@ -2,12 +2,12 @@ package LeetCode.strings;
 
 public class LengthOfLastWord {
     public static int lengthOfLastWord(String s) {
-        if(s.indexOf(" ") >= 0) {
+        if (s.indexOf(" ") >= 0) {
             String[] split = s.split(" ");
-            if(split.length == 0) {
+            if (split.length == 0) {
                 return 0;
             }
-            return split[split.length-1].length();
+            return split[split.length - 1].length();
         }
         return s.length();
     }

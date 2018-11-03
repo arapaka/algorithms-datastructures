@@ -5,17 +5,16 @@ package Facebook;
  */
 public class PossibleSubsets {
 
-    public static void print(int n , String x) {
-        if(n == 0) {
+    public static void print(int n, String x) {
+        if (n == 0) {
             System.out.println(x);
             return;
-        }
-        else {
+        } else {
 
             for (int i = 1; i <= n; i++) {
-                 x = x+i;
-                 print(n-i,x);
-                 x = x.substring(0,x.length()-1);
+                x = x + i;
+                print(n - i, x);
+                x = x.substring(0, x.length() - 1);
             }
 
         }

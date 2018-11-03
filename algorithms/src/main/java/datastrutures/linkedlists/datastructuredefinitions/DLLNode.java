@@ -14,7 +14,7 @@ public class DLLNode {
     }
 
 
-    public DLLNode(int data , DLLNode prev , DLLNode next){
+    public DLLNode(int data, DLLNode prev, DLLNode next) {
         this.data = data;
         this.prev = prev;
         this.next = next;

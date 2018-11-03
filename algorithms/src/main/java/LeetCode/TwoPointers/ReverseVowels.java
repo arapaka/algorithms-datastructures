@@ -9,7 +9,7 @@ import java.util.Set;
 public class ReverseVowels {
 
     public static void reverseVowels(String s) {
-        if(null == s || s.length() <= 1){
+        if (null == s || s.length() <= 1) {
             return;
         }
         Set<Character> chars = new HashSet<>(5);
@@ -20,24 +20,23 @@ public class ReverseVowels {
         chars.add('u');
 
         int left = 0;
-        int right = s.length()-1;
+        int right = s.length() - 1;
         char[] c = s.toCharArray();
         while (left <= right) {
-               if(chars.contains(c[left]) && chars.contains(c[right])) {
-                   swap(left,right,c);
-                   left++;
-                   right--;
-               }
-                else if (!chars.contains(c[left])) {
-                   left++;
-               }
-              else if (!chars.contains(c[right])) {
-                   right--;
-               }
+            if (chars.contains(c[left]) && chars.contains(c[right])) {
+                swap(left, right, c);
+                left++;
+                right--;
+            } else if (!chars.contains(c[left])) {
+                left++;
+            } else if (!chars.contains(c[right])) {
+                right--;
+            }
         }
         System.out.println(new String(c));
     }
-    public static void swap(int left , int right, char[] c) {
+
+    public static void swap(int left, int right, char[] c) {
         char temp = c[left];
         c[left] = c[right];
         c[right] = temp;

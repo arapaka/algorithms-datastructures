@@ -5,29 +5,27 @@ package LeetCode.TwoPointers;
  */
 public class WildCardMatching {
 
-    static boolean isMatch(String s , String p) {
+    static boolean isMatch(String s, String p) {
         int i = 0;
         int j = 0;
         int starIndex = -1;
         int iIndex = -1;
         while (i < s.length()) {
 
-             if(s.charAt(i) == p.charAt(j) || j < p.length() && ( p.charAt(j) == '?')) {
-                 ++i;
-                 ++j;
-            }
-            else if(j < p.length() && p.charAt(j) == '*'){
-                 starIndex = j;
-                 iIndex = i;
-                 j++;
-            }
-            else if(starIndex != -1) {
-              j = starIndex+1;
-              i = iIndex+1;
+            if (s.charAt(i) == p.charAt(j) || j < p.length() && (p.charAt(j) == '?')) {
+                ++i;
+                ++j;
+            } else if (j < p.length() && p.charAt(j) == '*') {
+                starIndex = j;
+                iIndex = i;
+                j++;
+            } else if (starIndex != -1) {
+                j = starIndex + 1;
+                i = iIndex + 1;
                 iIndex++;
-            }else {
-                 return false;
-             }
+            } else {
+                return false;
+            }
         }
         while (j < p.length() && p.charAt(j) == '*') {
             ++j;
@@ -37,14 +35,14 @@ public class WildCardMatching {
     }
 
     public static boolean regexMatch(String s, String p) {
-        for(int i = 0; i < p.length(); s = s.substring(1)) {
+        for (int i = 0; i < p.length(); s = s.substring(1)) {
             char c = p.charAt(i);
-            if(i + 1 >= p.length() || p.charAt(i + 1) != '*')
+            if (i + 1 >= p.length() || p.charAt(i + 1) != '*')
                 i++;
-            else if(regexMatch(s, p.substring(i + 2)))
+            else if (regexMatch(s, p.substring(i + 2)))
                 return true;
 
-            if(s.isEmpty() || (c != '.' && c != s.charAt(0)))
+            if (s.isEmpty() || (c != '.' && c != s.charAt(0)))
                 return false;
         }
 
@@ -52,7 +50,7 @@ public class WildCardMatching {
     }
 
     public static void main(String[] args) {
-           //System.out.print(isMatch("abed","?b*d**"));
-           System.out.println(regexMatch("aa", ".*"));
+        //System.out.print(isMatch("abed","?b*d**"));
+        System.out.println(regexMatch("aa", ".*"));
     }
 }

@@ -9,7 +9,7 @@ import java.util.Set;
 public class ReverseVowelsOfString {
 
     static String reverseVowelsOfString(String s) {
-        if(s == null || s.length() <= 1) {
+        if (s == null || s.length() <= 1) {
             return s;
         }
 
@@ -26,30 +26,32 @@ public class ReverseVowelsOfString {
         vowels.add('U');
 
         int left = 0;
-        int right = s.length()-1;
-        char [] chars = s.toCharArray();
+        int right = s.length() - 1;
+        char[] chars = s.toCharArray();
         while (left < right) {
-               while (!vowels.contains(s.charAt(right)) && left < right) {
-                   right--;
-               }
-               while (!vowels.contains(s.charAt(left)) && left < right) {
-                   left++;
-               }
+            while (!vowels.contains(s.charAt(right)) && left < right) {
+                right--;
+            }
+            while (!vowels.contains(s.charAt(left)) && left < right) {
+                left++;
+            }
 
-               if(left < right) {
-                   swap(left,right,chars);
-                   left++;
-                   right--;
-               }
+            if (left < right) {
+                swap(left, right, chars);
+                left++;
+                right--;
+            }
         }
         return new String(chars);
     }
-     public static void swap (int left , int right , char[] chars) {
+
+    public static void swap(int left, int right, char[] chars) {
         char temp = chars[left];
         chars[left] = chars[right];
         chars[right] = temp;
-     }
+    }
+
     public static void main(String[] args) {
-         System.out.print(reverseVowelsOfString(".,"));
+        System.out.print(reverseVowelsOfString(".,"));
     }
 }

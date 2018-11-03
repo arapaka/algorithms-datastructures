@@ -10,12 +10,13 @@ public class ListNode<T> {
     public T data;
     public ListNode<T> next;
 
-    public ListNode(){
+    public ListNode() {
 
     }
 
-    public ListNode(T data ){
+    public ListNode(T data) {
         this.data = data;
     }
+
     LinkedHashMap map = new LinkedHashMap();
 }

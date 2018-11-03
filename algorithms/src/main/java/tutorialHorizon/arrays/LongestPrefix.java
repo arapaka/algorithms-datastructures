@@ -10,26 +10,26 @@ public class LongestPrefix {
         String commonPrefix = "";
 
         for (int i = 1; i < strings.length; i++) {
-               commonPrefix = commonPrefix(strings[i],prefix);
-               prefix = commonPrefix;
+            commonPrefix = commonPrefix(strings[i], prefix);
+            prefix = commonPrefix;
         }
         return commonPrefix;
     }
 
-    public static String commonPrefix(String a , String b) {
-            int i = 0;
-            int j = 0;
-            StringBuilder sb = new StringBuilder("");
-            while (i < a.length() && j < b.length()) {
-                  if(a.charAt(i) == b.charAt(j)) {
-                      sb.append(a.charAt(i));
-                      i++;
-                      j++;
-                  } else {
-                      break;
-                  }
+    public static String commonPrefix(String a, String b) {
+        int i = 0;
+        int j = 0;
+        StringBuilder sb = new StringBuilder("");
+        while (i < a.length() && j < b.length()) {
+            if (a.charAt(i) == b.charAt(j)) {
+                sb.append(a.charAt(i));
+                i++;
+                j++;
+            } else {
+                break;
             }
-            return sb.toString();
+        }
+        return sb.toString();
     }
 
 

@@ -6,25 +6,25 @@ package datastrutures.strings;
  */
 public class RemoveCharacters {
 
-    static String removeChars(String first , String second) {
+    static String removeChars(String first, String second) {
         char[] count = new char[256]; // asci chars 256
 
-        for (char c:second.toCharArray()) {
-             count[c]++; // count array of chars;
+        for (char c : second.toCharArray()) {
+            count[c]++; // count array of chars;
         }
 
         String s = "";
 
-        for (char c:first.toCharArray()
-             ) {
-             if(!(count[c] > 0)) {
-                 s += c;
-             }
+        for (char c : first.toCharArray()
+        ) {
+            if (!(count[c] > 0)) {
+                s += c;
+            }
         }
         return s;
     }
 
-    public static void main(String[] args){
-            System.out.print(removeChars("geeksforgeeks","mask"));
+    public static void main(String[] args) {
+        System.out.print(removeChars("geeksforgeeks", "mask"));
     }
 }

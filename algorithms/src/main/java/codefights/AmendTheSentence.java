@@ -7,9 +7,9 @@ public class AmendTheSentence {
 
     static String amendTheSentence(String s) {
         StringBuilder sb = new StringBuilder("");
-        for(int i = 0; i < s.length();i++) {
+        for (int i = 0; i < s.length(); i++) {
             char c = s.charAt(i);
-            if(i != 0 && Character.isUpperCase(c)) {
+            if (i != 0 && Character.isUpperCase(c)) {
                 sb.append(" ");
                 Character.toLowerCase(c);
                 sb.append(c);

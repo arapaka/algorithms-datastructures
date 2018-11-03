@@ -5,48 +5,49 @@ import datastrutures.linkedlists.datastructuredefinitions.ListNode;
 
 /**
  * Created by archithrapaka on 2/16/17.
+ *
  * @link
  */
 public class MergeLinkedLists {
-    public static void mergeAlternatively(ListNode ls , ListNode ls2) {
-         if(ls == null && ls2 == null) {
-             System.out.println("empty");
-             return ;
-         }
+    public static void mergeAlternatively(ListNode ls, ListNode ls2) {
+        if (ls == null && ls2 == null) {
+            System.out.println("empty");
+            return;
+        }
 
-         if(ls == null) {
-             ListNode curr = ls2;
-              display(curr);
-              return;
-         }
-         if(ls2 == null) {
-             ListNode curr = ls;
-             display(curr);
-             return;
-         }
+        if (ls == null) {
+            ListNode curr = ls2;
+            display(curr);
+            return;
+        }
+        if (ls2 == null) {
+            ListNode curr = ls;
+            display(curr);
+            return;
+        }
 
-         // merge if both are non null
+        // merge if both are non null
 
         ListNode first = ls;
-         ListNode second = ls2;
+        ListNode second = ls2;
 
-         // to print the merged node later
-         ListNode temp = first;
+        // to print the merged node later
+        ListNode temp = first;
 
-         while (first != null && second != null) {
-                ListNode firstNext = first.next;
-                ListNode secondNext = second.next;
+        while (first != null && second != null) {
+            ListNode firstNext = first.next;
+            ListNode secondNext = second.next;
 
-                first.next = second;
-                second.next = firstNext;
+            first.next = second;
+            second.next = firstNext;
 
-                first = firstNext;
-                second = secondNext;
-         }
+            first = firstNext;
+            second = secondNext;
+        }
 
         display(temp);
-         System.out.println("remaining list");
-         display(second);
+        System.out.println("remaining list");
+        display(second);
     }
 
     public static void display(ListNode head) {
@@ -56,6 +57,7 @@ public class MergeLinkedLists {
             currNode = currNode.next;
         }
     }
+
     public static void main(String[] args) {
         LinkedList ls = new LinkedList();
         ls.insertBeforeHead(5);
@@ -66,10 +68,10 @@ public class MergeLinkedLists {
         //ls.print();
 
         LinkedList ls2 = new LinkedList();
-        for (int i = 3; i <= 21; i = i+3) {
+        for (int i = 3; i <= 21; i = i + 3) {
             ls2.insertAtTheEnd(i);
         }
         //ls2.print();
-        mergeAlternatively(ls.getHead(),ls2.getHead());
+        mergeAlternatively(ls.getHead(), ls2.getHead());
     }
 }

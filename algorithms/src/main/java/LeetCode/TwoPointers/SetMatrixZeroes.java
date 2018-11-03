@@ -6,7 +6,7 @@ package LeetCode.TwoPointers;
 public class SetMatrixZeroes {
 
     public static void setZeros(int[][] mat) {
-        if(null == mat || mat.length == 0) return;
+        if (null == mat || mat.length == 0) return;
         int m = mat.length;
         int n = mat[0].length;
 

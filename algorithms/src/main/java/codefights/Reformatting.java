@@ -11,8 +11,8 @@ public class Reformatting {
         StringBuffer sb = new StringBuffer("");
         StringBuffer sb2 = new StringBuffer("");
 
-        for(char c : chars) {
-            if(c != '-') {
+        for (char c : chars) {
+            if (c != '-') {
                 count++;
                 sb.append(c);
             }
@@ -21,29 +21,29 @@ public class Reformatting {
             return s;
         }
         System.out.println(sb.toString());
-        int groups = count/k;
+        int groups = count / k;
 
-        int i = sb.length()-1;
-        int j ;
-        while(groups > 0) {
+        int i = sb.length() - 1;
+        int j;
+        while (groups > 0) {
             j = 0;
-            while(j < k && i >= 0) {
-                    sb2.append(sb.charAt(i));
-                    i--;
-                    j++;
+            while (j < k && i >= 0) {
+                sb2.append(sb.charAt(i));
+                i--;
+                j++;
             }
 
-                sb2.append("-");
+            sb2.append("-");
             groups--;
         }
 
-        while (i >=0) {
+        while (i >= 0) {
             sb2.append(sb.charAt(i));
             i--;
         }
 
-        if(sb2.charAt(sb2.length()-1) == '-') {
-            sb2.deleteCharAt(sb2.length()-1);
+        if (sb2.charAt(sb2.length() - 1) == '-') {
+            sb2.deleteCharAt(sb2.length() - 1);
         }
 
         return sb2.reverse().toString();
@@ -52,6 +52,6 @@ public class Reformatting {
     public static void main(String[] rags) {
         String s = "-";
         int k = 1;
-        System.out.print(stringReformatting(s,k));
+        System.out.print(stringReformatting(s, k));
     }
 }

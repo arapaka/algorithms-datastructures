@@ -7,10 +7,12 @@ package design;
 public class User {
     private String username;
     private int age;
+
     enum FriendType {
         CLOSE,
         AQUAINTANCE
     }
+
     private String profession;
 
     public int getAge() {

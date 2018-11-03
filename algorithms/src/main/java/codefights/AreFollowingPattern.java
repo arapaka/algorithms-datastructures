@@ -11,23 +11,21 @@ public class AreFollowingPattern {
 
         int i = 0;
         int j = 0;
-        Map<String,String> map = new HashMap<>();
+        Map<String, String> map = new HashMap<>();
 
-        while (i < strings.length && j < patterns.length ) {
+        while (i < strings.length && j < patterns.length) {
 
             String string = strings[i];
             String pattern = patterns[j];
 
-            if(map.containsKey(string)) {
+            if (map.containsKey(string)) {
                 if (!map.get(string).equals(pattern)) {
                     return false;
                 }
-            }
-            else if (map.containsValue(pattern)) {
+            } else if (map.containsValue(pattern)) {
                 return false;
-            }
-            else {
-                map.put(string,pattern);
+            } else {
+                map.put(string, pattern);
             }
             i++;
             j++;

@@ -7,13 +7,13 @@ public class Misc {
         String conversion = "0123456789ABCDEF";
         char digit = (char) (number % base);
         number = number / base;
-        if(number != 0) {
-            printInt(number,base);
+        if (number != 0) {
+            printInt(number, base);
         }
-        System.out.print(""+conversion.charAt(digit));
+        System.out.print("" + conversion.charAt(digit));
     }
 
     public static void main(String[] args) {
-        printInt(30,5);
+        printInt(30, 5);
     }
 }

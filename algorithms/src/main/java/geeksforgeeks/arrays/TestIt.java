@@ -5,5 +5,8 @@ package geeksforgeeks.arrays;
  */
 public interface TestIt {
 
-    static void main(String[] args){};
+    static void main(String[] args) {
+    }
+
+    ;
 }
